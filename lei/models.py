@@ -8,14 +8,23 @@ class Docente(models.Model):
     nome = models.CharField(max_length=250)
     email = models.EmailField(blank=True)
 
+    def __str__(self):
+        return self.nome
+
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
 
 
 class AnoLetivo(models.Model):
     data = models.IntegerField()
     observacao = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.data
 
 
 class News(models.Model):
@@ -26,9 +35,15 @@ class News(models.Model):
     data = models.DateTimeField(default=timezone.now)
     informacao = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.cabecalho
+
 
 class AreaCientifica(models.Model):
     nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
 
 
 class Cadeira(models.Model):
@@ -36,6 +51,9 @@ class Cadeira(models.Model):
     sigla = models.CharField(max_length=50)
     areacientifica = models.ForeignKey(AreaCientifica, on_delete=models.DO_NOTHING)
     tipo = models.IntegerField(blank=True)
+
+    def __str__(self):
+        return self.nome
 
 
 class Recurso(models.Model):
@@ -48,13 +66,22 @@ class Recurso(models.Model):
     link = models.URLField(blank=True)
     detalhe = models.TextField()
 
+    def __str__(self):
+        return self.nome
+
 
 class Turma(models.Model):
     turma = models.CharField(max_length=2)
     sala = models.IntegerField()
+
+    def __str__(self):
+        return self.turma
 
 
 class Nota(models.Model):
     titulo = models.CharField(max_length=150)
     turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
     #introduzir campo para ficheiro
+
+    def __str__(self):
+        return self.titulo
