@@ -7,30 +7,37 @@ from . models import Docente, Categoria, AnoLetivo, News,\
 
 class DocenteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email')
+    list_display_links = ('nome', 'email')
 
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('nome')
+    list_display = ('id', 'nome')
+    list_display_links = ('id', 'nome')
 
 
 class AnoLetivoAdmin(admin.ModelAdmin):
     list_display = ('data', 'observacao')
+    list_display_links = ('data', 'observacao')
 
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('cabecalho', 'data', 'informacao')
+    list_display_links = ('cabecalho', 'data')
 
 
 class AreaCientificaAdmin(admin.ModelAdmin):
-    list_display = ('nome')
+    list_display = ('id', 'nome')
+    list_display_links = ('id', 'nome')
 
 
 class CadeiraAdmin(admin.ModelAdmin):
     list_display = ('nome', 'sigla', 'areacientifica', 'tipo')
+    list_display_links = ('nome', 'sigla')
 
 
 class RecursoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'categoria', 'anoletivo')
+    list_display_links = ('nome', 'categoria')
 
 
 class TurmaAdmin(admin.ModelAdmin):
@@ -39,7 +46,7 @@ class TurmaAdmin(admin.ModelAdmin):
 
 class NotaAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'turma')
-    
+
 
 admin.site.register(Docente, DocenteAdmin)
 
