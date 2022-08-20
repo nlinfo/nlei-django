@@ -28,7 +28,7 @@ class AnoLetivo(models.Model):
 
 
 class News(models.Model):
-    cabecalho = models.TextField()
+    cabecalho = models.CharField(max_length=250)
     corpo = models.TextField()
     #introduzir imagem
     imagelink = models.URLField()
