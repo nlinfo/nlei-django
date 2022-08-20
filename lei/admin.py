@@ -39,6 +39,23 @@ class TurmaAdmin(admin.ModelAdmin):
 
 class NotaAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'turma')
+    
 
 admin.site.register(Docente, DocenteAdmin)
+
+admin.site.register(Categoria, CategoriaAdmin)
+
+admin.site.register(AnoLetivo, AnoLetivoAdmin)
+
+admin.site.register(News, NewsAdmin)
+
+admin.site.register(AreaCientifica, AreaCientificaAdmin)
+
+admin.site.register(Cadeira, CadeiraAdmin)
+
+admin.site.register(Recurso, RecursoAdmin)
+
+admin.site.register(Turma, TurmaAdmin)
+
+admin.site.register(Nota, NotaAdmin)
 
