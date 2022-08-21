@@ -20,7 +20,7 @@ class Categoria(models.Model):
 
 
 class AnoLetivo(models.Model):
-    data = models.IntegerField()
+    data = models.CharField(max_length=12)
     observacao = models.TextField(blank=True)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class News(models.Model):
     cabecalho = models.CharField(max_length=250)
     corpo = models.TextField()
     #introduzir imagem
-    imagelink = models.URLField()
+    imagelink = models.URLField(blank=True)
     data = models.DateTimeField(default=timezone.now)
     informacao = models.BooleanField(default=False)
 

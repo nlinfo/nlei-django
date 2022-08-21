@@ -8,44 +8,54 @@ from . models import Docente, Categoria, AnoLetivo, News,\
 class DocenteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email')
     list_display_links = ('nome', 'email')
+    list_per_page = 50
+
 
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome')
     list_display_links = ('id', 'nome')
+    list_per_page = 10
 
 
 class AnoLetivoAdmin(admin.ModelAdmin):
     list_display = ('data', 'observacao')
     list_display_links = ('data', 'observacao')
+    list_per_page = 50
 
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('cabecalho', 'data', 'informacao')
+    list_per_page = 50
     list_display_links = ('cabecalho', 'data')
 
 
 class AreaCientificaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome')
     list_display_links = ('id', 'nome')
+    list_per_page = 50
 
 
 class CadeiraAdmin(admin.ModelAdmin):
     list_display = ('nome', 'sigla', 'areacientifica', 'tipo')
     list_display_links = ('nome', 'sigla')
+    list_per_page = 50
 
 
 class RecursoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'categoria', 'anoletivo')
     list_display_links = ('nome', 'categoria')
+    list_per_page = 50
 
 
 class TurmaAdmin(admin.ModelAdmin):
     list_display = ('turma', 'sala')
+    list_per_page = 50
 
 
 class NotaAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'turma')
+    list_per_page = 50
 
 
 admin.site.register(Docente, DocenteAdmin)
