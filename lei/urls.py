@@ -7,5 +7,5 @@ urlpatterns = [
     path('recursos-list/', views.newsList, name='recursos-list'),
     path('notas-list/', views.recursoList, name='notas-list'),
 
-    path('/recursos-detail/<str:pk>/', views.recursoDetail, name='recurso-detail'),
+    path('recursos-detail/<str:pk>/', views.recursoDetail, name='recurso-detail'),
 ]

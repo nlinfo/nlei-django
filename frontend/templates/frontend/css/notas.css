@@ -1,0 +1,30 @@
+
+
+
+#notas{
+    margin: 6rem .5rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    gap: 3rem;
+}
+.turma a {
+    text-decoration: none;
+    color: #3B3B3B;
+    background-color: rgba(0, 198, 207, 0.36);
+    
+    padding: .4rem .7rem;
+    transition: background-color 2s;
+}
+.turma a:hover {
+    background-color: #00C6CF;
+    
+}
+.turma {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Introdução*/
+.introducao {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.introducao div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+
+.introducao div p:first-of-type {
+    font-size: 2em;
+}
+
+.introducao div p:last-of-type {
+    font-weight: 500;
+}
+
+.introducao div p:first-of-type>span {
+    color: #00C6CF;
+}
+
+.introducao div a {
+    text-decoration: none;
+    background-color: #3B3B3B;
+    color: #fff;
+    max-width: fit-content;
+    padding: .5rem 1rem;
+    border-radius: 2px;
+    margin: 3rem auto 7rem 0;
+    
+    transition: background-color .5s;
+}
+.introducao div a:hover{
+    background-color: #3b3b3bbe;   
+}
+
+.introducao img {
+    max-width: 40%;
+}
+
+
+
+/*links*/
+#links_git_mail,
+#links_git_mail div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
+    gap: 1rem;
+}
+
+#links_git_mail {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    background-color: #3B3B3B;
+    padding: 1rem;
+    border-radius: 2px;
+}
+
+#links_git_mail div:last-of-type {
+    /*display: none;*/
+}
+#abrir_fecharLinks{
+    
+    padding: .5rem;
+    background-color: #de5151;
+    border-radius: 3px;
+}
+
+#links_git_mail div:last-of-type > a {
+    color: #fff;
+    width: 100%;
+    padding: .5rem;
+    text-align: center;
+
+}
+
+#links_git_mail div:last-of-type a:hover {
+    color: #00C6CF;
+
+}
+#abrir_fecharLinks{
+    cursor: pointer;
+}
+
+
+/* Responsividade */
+
+@media screen and (max-width: 1150px) {
+
+    .introducao div p:first-of-type {
+        font-size: 1.5em;
+    }
+
+    .introducao div p:last-child {
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+    .introducao div a {
+        margin: 3rem auto 4.5rem 0;
+    }
+}
+
+@media screen and (max-width: 980px) {
+
+    .introducao div p:first-of-type {
+        font-size: 1.5em;
+    }
+
+    .introducao div p:last-child {
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+    .introducao div a {
+        margin: 3rem auto 2rem 0;
+    }
+
+
+}
+
+@media screen and (max-width: 885px) {
+
+    .introducao {
+        margin-top: 10rem;
+    }
+
+    .introducao div p:first-of-type {
+        font-size: 1.2em;
+    }
+
+    .introducao div p:last-child {
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+    .introducao div a {
+        margin: 2rem auto 2rem 0;
+    }
+
+
+}
+
+@media screen and (max-width: 595px) {
+
+    .introducao {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .introducao div {
+        margin-top: 1rem;
+
+        align-items: center;
+        text-align: center;
+    }
+    .introducao div a{
+        margin: 2rem auto;
+    }
+
+    .introducao img {
+        max-width: 100%;
+        margin: auto;
+    }
+
+
+}
