@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'lei.apps.LeiConfig',
+    'frontend.apps.FrontendConfig',
     'rest_framework',
 ]
 
