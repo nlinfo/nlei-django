@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt">
 
 <head>
@@ -12,22 +13,22 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/d2de26b24a.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./css/navBar.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/recursos.css">
-    <link rel="stylesheet" href="./css/notas.css">
+    <link rel="stylesheet" href="{% static './css/navBar.css' %}">
+    <link rel="stylesheet" href="{% static './css/index.css' %}">
+    <link rel="stylesheet" href="{% static './css/recursos.css' %}">
+    <link rel="stylesheet" href="{% static './css/notas.css' %}">
 </head>
 
 <body>
     <header>
-        <h1><a href="./index.html">NLEI</a></h1>
+        <h1><a href="{% url 'home' %}">NLEI</a></h1>
         <nav>
             <ul id="menu_mobile">
-                <li><a href="./index.html">LEI</a></li>
-                <li><a href="./news.html">News</a></li>
-                <li><a href="./recursos.html">Recursos</a></li>
-                <li><a href="./calendario.html">Calendário</a></li>
-                <li><a href="">Notas</a></li>
+                <li><a href="{% url 'lei' %}">LEI</a></li>
+                <li><a href="{% url 'news' %}">News</a></li>
+                <li><a href="{% url 'recursos' %}">Recursos</a></li>
+                <li><a href="{% url 'calendario' %}">Calendário</a></li>
+                <li><a href="{% url 'notas' %}">Notas</a></li>
             </ul>
         </nav>
         <div id="botao_menu"><i class="fa-solid fa-bars"></i></div>
@@ -110,8 +111,8 @@
 
 
 
-    <script src="./js/index.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="{% static './js/index.js' %}"></script>
+    <script src="{% static './js/menu.js' %}"></script>
 
 
 </body>
