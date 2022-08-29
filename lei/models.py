@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
+import os
 
 # Create your models here.
 
@@ -7,6 +9,7 @@ from django.utils import timezone
 class Docente(models.Model):
     nome = models.CharField(max_length=250)
     email = models.EmailField(blank=True)
+    numeroDeTelefone = models.PositiveIntegerField(blank=True, default='+239')
 
     def __str__(self):
         return self.nome
@@ -30,7 +33,7 @@ class AnoLetivo(models.Model):
 class News(models.Model):
     cabecalho = models.CharField(max_length=250)
     corpo = models.TextField()
-    #introduzir imagem
+    imagem = models.ImageField(blank=True, null=True, upload_to='imagens/news')
     imagelink = models.URLField(blank=True)
     data = models.DateTimeField(default=timezone.now)
     informacao = models.BooleanField(default=False)
@@ -62,7 +65,8 @@ class Recurso(models.Model):
     docente = models.ForeignKey(Docente, on_delete=models.DO_NOTHING, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     anoletivo = models.ForeignKey(AnoLetivo, on_delete=models.DO_NOTHING)
-    #introduzir o campo para ficheiro
+
+    ficheiro = models.FileField(null=True, upload_to='recurso/')
     link = models.URLField(blank=True)
     detalhe = models.TextField()
 
@@ -81,7 +85,18 @@ class Turma(models.Model):
 class Nota(models.Model):
     titulo = models.CharField(max_length=150)
     turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
-    #introduzir campo para ficheiro
+    ficheiro = models.FileField(null=True, upload_to='nota/')
 
     def __str__(self):
         return self.titulo
+
+
+# alunos
+
+class Aluno(models.Model):
+    nome = models.CharField(max_length=100)
+    turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
+    dataDeNascimento = models.DateField(default=timezone.now, blank=True)
+    numeroDeTelefone = models.PositiveIntegerField(blank=True)
+    email = models.EmailField(blank=True)
+
