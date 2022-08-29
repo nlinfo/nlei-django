@@ -40,6 +40,12 @@ class NewsSerializer(serializers.ModelSerializer):
 
 
 class RecursoSerializer(serializers.ModelSerializer):
+
+    cadeira = CadeiraSerializer()
+    docente = DocenteSerializer()
+    categoria = CategoriaSerializer()
+    anoletivo = AnoLetivoSerializer()
+
     class Meta:
         model = Recurso
         fields = '__all__'
@@ -52,6 +58,7 @@ class TurmaSerializer(serializers.ModelSerializer):
 
 
 class NotaSerializer(serializers.ModelSerializer):
+    turma = TurmaSerializer()
     class Meta:
         model = Nota
         fields = '__all__'
