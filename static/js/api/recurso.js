@@ -20,10 +20,10 @@ function buildRecursoList() {
             function listarRecursos(listaDeDados) {
 
                 for (const i in listaDeDados) {
-                    //console.log(list[i])
+                    //console.log(listaDeDados[i].id)
 
                     let item = `
-                        <a class="recurso" href="#download?fileId=1">
+                        <a class="recurso" href="#download/?fileId=${listaDeDados[i].id}">
                             <i class="fa-solid fa-folder-open"></i>
                             <span>
                                 <p>${listaDeDados[i].nome}</p>
@@ -144,3 +144,33 @@ function buildRecursoList() {
 }
 
 buildRecursoList()
+
+
+//pegar um recurso especifico
+function downloadFile() {
+    let baixarFicheiro = document.getElementById('baixar_ficheiro')
+
+    const params = new URLSearchParams(window.location.search);
+    const recursoID = params.get("fileId");
+    console.log('url:',recursoID)
+
+    let url = `http://127.0.0.1:8000/api/recursos-detail/${recursoID}/`
+
+    fetch(url)
+        .then((response) => response.json())
+        .then(function (data) {
+            console.log('Recurso:', data)
+
+            let recurso = data
+
+            let nomeDoficheiro = document.getElementById("nomeDoFicheiro")
+            let nomeDacadeira = document.getElementById("nomeDaCadeira")
+            let nomeDodocente = document.getElementById("nomeDoDocente")
+            let anolectivo = document.getElementById("Ano_Letivo")
+            let link = document.getElementById("linkFicheiro")
+
+            link.setAttribute("hrf", 'http://127.0.0.1:8000/static'+recurso.ficheiro)
+            
+        })
+}
+downloadFile()
