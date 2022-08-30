@@ -43,7 +43,7 @@
             <div>
                 <form action="">
                     <input type="search" id="bara_de_pesquisa">
-                    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="button" id="pesquisar"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
 
             </div>
@@ -107,19 +107,20 @@
 
                 <label for="ano_lectivo">Ano:</label>
                 <select name="" id="ano_lectivo">
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
+                    <!--
+                    <option value="2020">2020</option>                        
+                    -->
+
                 </select>
 
                 <label for="">Cadeira:</label>
-                <select name="" id="">
-                    <option value="Ingles">Inglês</option>
-                    <option value="Analise Matematica">Analise Matemática</option>
-                    <option value="Algebra Linear">Algébra Linear</option>
-                    <option value="Base de Dados">Base de Dados</option>
+                <select name="" id="selectCadeira">
+                    <!--
+                    <option value="Ingles">Inglês</option>                        
+                    -->
+
                 </select>
-                <button type="button">filtrar</button>
+                <button type="button" id="filtrarRecurso">filtrar</button>
             </form>
         </section>
         <section class="baixar fixedSession" id="download">
