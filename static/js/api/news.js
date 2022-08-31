@@ -23,7 +23,7 @@ function buildNewsList() {
                     let item
 
                     //ver se os artigos têm imagem
-                    if ((listaDeNews[i].imagelink == null) && (listaDeNews[i].imagem == null)) {
+                    if ((listaDeNews[i].imagelink == "") && (listaDeNews[i].imagem == null)) {
                         item = `
                         <article class="noticia">
                             <h2>${listaDeNews[i].cabecalho}</h2>
@@ -36,7 +36,7 @@ function buildNewsList() {
                     } else {
                         let link
 
-                        if (listaDeNews[i].imagelink != null) {
+                        if (listaDeNews[i].imagelink != "") {
                             link = listaDeNews[i].imagelink
                         } else {
                             link = 'http://127.0.0.1:8000/static' + listaDeNews[i].imagem
