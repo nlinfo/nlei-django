@@ -23,7 +23,7 @@ function buildRecursoList() {
                     //console.log(listaDeDados[i].id)
 
                     let item = `
-                        <a class="recurso" href="#download/?fileId=${listaDeDados[i].id}">
+                        <a class="recurso" onclick="abrirDownload(); downloadFile(${listaDeDados[i].id})" >
                             <i class="fa-solid fa-folder-open"></i>
                             <span>
                                 <p>${listaDeDados[i].nome}</p>
@@ -47,7 +47,7 @@ function buildRecursoList() {
                 const filteredData = searchTable(value, list)
 
                 console.log('Value:', value)
-                console.log(filteredData)
+                //console.log(filteredData)
                 files.innerHTML = ''
                 console.log('filtered:', filteredData)
                 if (filteredData.length == 0) {
@@ -77,14 +77,15 @@ function buildRecursoList() {
             let FiltrarButton = document.getElementById("filtrarRecurso")
             let pesquisar = document.getElementById("pesquisar")
             pesquisar.addEventListener('click', (event) => {
-                event.preventDefault()})
+                event.preventDefault()
+            })
 
             FiltrarButton.addEventListener('click', () => {
 
                 let anoLectivo = document.getElementById("ano_lectivo").value
                 let cadeira = document.getElementById("selectCadeira").value.toLowerCase()
 
-                console.log(anoLectivo, cadeira)
+                //console.log(anoLectivo, cadeira)
                 files.innerHTML = ''
                 listarRecursos(filterSession(cadeira, anoLectivo, list))
 
@@ -111,10 +112,6 @@ function buildRecursoList() {
             }
 
 
-
-
-
-
             /*preencher os selects de ano e cadeira*/
             function preencherSelects(lista) {
 
@@ -125,16 +122,16 @@ function buildRecursoList() {
                     let recursoCadeira = recurso.cadeira.nome
                     let recursoSilga = recurso.cadeira.sigla
                     let recursoAno = recurso.anoletivo.data
-                    console.log(recursoCadeira, recursoAno, 'preencher')
+                    //console.log(recursoCadeira, recursoAno, 'preencher')
 
                     let ano = `<option value="${recursoAno}">${recursoAno}</option>`
-                    console.log('ano feito')
+                    //console.log('ano feito')
 
                     let cadeira = `<option value="${recursoSilga}">${recursoCadeira}</option>`
 
                     anoLectivo.innerHTML += ano
-                    cadeiraSelect.innerHTML += cadeira 
-                    
+                    cadeiraSelect.innerHTML += cadeira
+
                 }
 
             }
@@ -147,14 +144,15 @@ buildRecursoList()
 
 
 //pegar um recurso especifico
-function downloadFile() {
+function downloadFile(ID) {
     let baixarFicheiro = document.getElementById('baixar_ficheiro')
 
-    const params = new URLSearchParams(window.location.search);
-    const recursoID = params.get("fileId");
-    console.log('url:',recursoID)
+    //const params = new URLSearchParams(window.location.search);
+    //const recursoID = params.get("fileId");
+    //console.log('url:', recursoID)
+    console.log(ID)
 
-    let url = `http://127.0.0.1:8000/api/recursos-detail/${recursoID}/`
+    let url = `http://127.0.0.1:8000/api/recursos-detail/${ID}/`
 
     fetch(url)
         .then((response) => response.json())
@@ -167,10 +165,16 @@ function downloadFile() {
             let nomeDacadeira = document.getElementById("nomeDaCadeira")
             let nomeDodocente = document.getElementById("nomeDoDocente")
             let anolectivo = document.getElementById("Ano_Letivo")
-            let link = document.getElementById("linkFicheiro")
 
-            link.setAttribute("hrf", 'http://127.0.0.1:8000/static'+recurso.ficheiro)
-            
+            nomeDoficheiro.innerHTML = recurso.nome;
+            nomeDacadeira.innerHTML = recurso.cadeira.nome;
+            nomeDodocente.innerHTML = recurso.docente.nome
+            anolectivo.innerHTML = recurso.anoletivo.data
+
+            const link = 'http://127.0.0.1:8000/static' + recurso.ficheiro;
+            let buttonLink = document.getElementById("baixar_ficheiro")
+            buttonLink.innerHTML = `<a href=${link} >Download</a>`
+
         })
 }
-downloadFile()
+//downloadFile()

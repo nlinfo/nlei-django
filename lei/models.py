@@ -69,6 +69,7 @@ class Recurso(models.Model):
     ficheiro = models.FileField(null=True, upload_to='recurso/')
     link = models.URLField(blank=True)
     detalhe = models.TextField()
+    data = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.nome
