@@ -47,8 +47,9 @@ def recursoList(request):
 
 @api_view(['GET'])
 def recursoDetail(request, pk):
-    recursos = Recurso.objects.get(id=pk)
-    serializer = RecursoSerializer(recursos, many=False)
+    recurso = Recurso.objects.get(id=pk)
+    serializer = RecursoSerializer(recurso, many=False)
+    # print('Recurso:: ',serializer.data)
     return Response(serializer.data)
 
 
@@ -56,15 +57,19 @@ def recursoDetail(request, pk):
 def notaList(request):
     notas = Nota.objects.all().order_by('-id')
 
+    # dicionario para agrupar as notas por turma
     dicionario = {}
     print(notas)
 
     for nota in notas:
-        print(nota)
+        # print(nota)
+        # print(type(nota))
         if not nota.turma.turma in dicionario:
             dicionario[nota.turma.turma] = []
-        dicionario[nota.turma.turma].append(nota)
-    print(dicionario)
+        #serializar as notas
+        notaserialized = NotaSerializer(nota, many=False)
+        dicionario[nota.turma.turma].append(notaserialized.data)
+    # print(dicionario)
 
     serializer = NotaSerializer(notas, many=True)
-    return Response(serializer.data)
+    return Response(dicionario)
