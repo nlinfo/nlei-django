@@ -28,7 +28,7 @@ function buildNotaList() {
                     <a href=${link}><i class="fa-solid fa-file"></i>${turma.titulo}</a>
                     `
                     todasasnotas += nota
-                    console.log(turma.titulo)
+                    //console.log(turma.titulo)
                     
                 }
 
