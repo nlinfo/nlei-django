@@ -5,19 +5,45 @@ function buildNotaList() {
     let url = 'http://127.0.0.1:8000/api/notas-list/'
 
     fetch(url)
-    .then((response) => response.json())
-    .then(function(data) {
-        console.log('Data:', data)
+        .then((response) => response.json())
+        .then(function (data) {
+            console.log('Data:', data)
 
-        let list = data
+            let NotaTurma = data
+            //NotaTurma : notas agrupadas por turma
 
+            let chavesturma = Object.keys(NotaTurma)
+            console.log('chaves: ', chavesturma)
 
-        for (const i in list) {
-            console.log(list[i].turma.turma)
+            //iterar nos grupos de turma
+            for (const chave in chavesturma) {
 
+                let todasasnotas = '', turma
+                //iterar em cada turma dentro do grupo
+                for (const turma of NotaTurma[chavesturma[chave]]) {
 
-        }
-    })
+                    const link = 'http://127.0.0.1:8000/static' + turma.ficheiro
+
+                    let nota = `
+                    <a href=${link}><i class="fa-solid fa-file"></i>${turma.titulo}</a>
+                    `
+                    todasasnotas += nota
+                    console.log(turma.titulo)
+                    
+                }
+
+                turma = `
+                <div class="turma"id="turma${chave}">
+                    <h3>Turma ${chavesturma[chave]}</h3>
+                    ${todasasnotas}
+                </div>
+                `
+                //console.log(chavesturma[chave])
+
+                notas.innerHTML += turma
+            }
+            //console.log(NotaTurma['A'])
+        })
 }
 
 buildNotaList()
