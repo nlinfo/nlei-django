@@ -2,7 +2,7 @@
 
 
 //links
-var abrir_fecharLinksRapidos = document.getElementById("ellips_xmark")
+const abrir_fecharLinksRapidos = document.getElementById("ellips_xmark")
 
 abrir_fecharLinksRapidos.addEventListener("click", abrir_fecharLinks);
 
@@ -10,8 +10,8 @@ abrir_fecharLinksRapidos.addEventListener("click", abrir_fecharLinks);
 //função para abrir e fechar a div dos links
 function abrir_fecharLinks() {
 
-    var icone_id = document.querySelector('#abrir_fecharLinks')
-    var divComLinks = document.querySelector("#divComLinks")
+    let icone_id = document.querySelector('#abrir_fecharLinks')
+    let divComLinks = document.querySelector("#divComLinks")
 
     icone_id.style.background = "#3B3B3B";
     icone_id.classList.toggle("fa-xmark");
