@@ -101,3 +101,13 @@ class Aluno(models.Model):
     numeroDeTelefone = models.PositiveIntegerField(blank=True)
     email = models.EmailField(blank=True)
 
+# calendário
+
+class Calendario(models.Model):
+    titulo = models.CharField(max_length=200)
+    dataInicio = models.DateTimeField(default=timezone.now)
+    dataFim = models.DateTimeField(default=timezone.now)
+    detallhe = models.TextField()
+
+    def __str__(self):
+        return self.titulo

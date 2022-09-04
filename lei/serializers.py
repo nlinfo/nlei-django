@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
-    Cadeira, News, Recurso, Turma, Nota
+    Cadeira, News, Recurso, Turma, Nota, Calendario
 
 
 class DocenteSerializer(serializers.ModelSerializer):
@@ -59,6 +59,13 @@ class TurmaSerializer(serializers.ModelSerializer):
 
 class NotaSerializer(serializers.ModelSerializer):
     turma = TurmaSerializer()
+
     class Meta:
         model = Nota
+        fields = '__all__'
+
+
+class CalendarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Calendario
         fields = '__all__'

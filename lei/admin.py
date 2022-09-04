@@ -1,6 +1,6 @@
 from django.contrib import admin
 from . models import Docente, Categoria, AnoLetivo, News,\
-    AreaCientifica, Cadeira, Recurso, Turma, Nota, Aluno
+    AreaCientifica, Cadeira, Recurso, Turma, Nota, Aluno, Calendario
 
 
 # Register your models here.
@@ -64,6 +64,11 @@ class AlunoAdmin(admin.ModelAdmin):
     list_editable = ('email', 'numeroDeTelefone')
 
 
+class CalendarioAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'dataInicio', 'dataFim')
+    list_per_page = 50
+
+
 admin.site.register(Docente, DocenteAdmin)
 
 admin.site.register(Categoria, CategoriaAdmin)
@@ -83,4 +88,6 @@ admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Nota, NotaAdmin)
 
 admin.site.register(Aluno, AlunoAdmin)
+
+admin.site.register(Calendario, CalendarioAdmin)
 

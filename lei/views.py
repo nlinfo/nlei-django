@@ -8,8 +8,8 @@ from django.forms.models import model_to_dict
 import json
 
 from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
-    Cadeira, News, Recurso, Turma, Nota
-from .serializers import NewsSerializer, RecursoSerializer, NotaSerializer
+    Cadeira, News, Recurso, Turma, Nota, Calendario
+from .serializers import NewsSerializer, RecursoSerializer, NotaSerializer, CalendarioSerializer
 
 # Create your views here.
 
@@ -22,6 +22,7 @@ def index(request):
         'List Recurso': '/recursos-list',
         'List Notas': '/notas-list',
         'List Lei': '/lei-list',
+        'List calendario': '/calendario-list',
 
         # recurso especifico
 
@@ -73,3 +74,12 @@ def notaList(request):
 
     serializer = NotaSerializer(notas, many=True)
     return Response(dicionario)
+
+
+@api_view(['GET'])
+def calendarioList(request):
+    calendario = Calendario.objects.all().order_by('dataInicio')
+    serializer = CalendarioSerializer(calendario, many=True)
+    return Response(serializer.data)
+
+
