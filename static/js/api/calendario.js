@@ -13,34 +13,10 @@ function buildCalendarioList() {
         .then(function (data) {
             console.log('Data:', data)
 
+
+
             let eventos = data
 
-
-            function DiaDaSemana(dia) {
-                switch (dia) {
-                    case 'Mon':
-                        day = "Segunda-feira";
-                        break;
-                    case 'Tue':
-                        day = "Terça-feira";
-                        break;
-                    case 'Wed':
-                        day = "Quarta-feira";
-                        break;
-                    case 'Thu':
-                        day = "Quinta-feira";
-                        break;
-                    case 'Fri':
-                        day = "Sexta-feira";
-                        break;
-                    case 'Sat':
-                        day = "Sábado";
-                        break;
-                    case 'Sun':
-                        day = "Domingo";
-                }
-                return day
-            }
 
             const weekday = ["Domingo","Segunda-feira","Terça-Feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
 
@@ -89,3 +65,5 @@ function buildCalendarioList() {
 }
 
 buildCalendarioList()
+
+

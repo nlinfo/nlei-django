@@ -11,7 +11,9 @@ function buildNewsList() {
         .then(function (data) {
             console.log('Data:', data)
 
-            let list = data
+            let list = data.results
+
+            //pode-se usar data["results"] ou data.results
 
             //list corresponde á lista de recursos
 

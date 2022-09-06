@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from rest_framework import status
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from django.core import serializers
 from django.forms.models import model_to_dict
@@ -12,7 +14,7 @@ from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
 from .serializers import NewsSerializer, RecursoSerializer, NotaSerializer, CalendarioSerializer
 
 from rest_framework.pagination import PageNumberPagination
-from lei.pagination import NewsPageNumberPagination
+from lei.pagination import NewsPageNumberPagination, CalendarioPageNumberPagination
 # Create your views here.
 
 
@@ -35,11 +37,14 @@ def index(request):
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny, ])
 def newsList(request):
+
     news = News.objects.all().order_by('-id')
-    serializer = NewsSerializer(news, many=True)
-    pagination = NewsPageNumberPagination
-    return Response(serializer.data)
+    paginator = NewsPageNumberPagination()
+    news_result = paginator.paginate_queryset(news, request)
+    serializer = NewsSerializer(news_result, many=True)
+    return paginator.get_paginated_response(serializer.data)
 
 
 @api_view(['GET'])
@@ -80,10 +85,11 @@ def notaList(request):
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny, ])
 def calendarioList(request):
+
     calendario = Calendario.objects.all().order_by('dataInicio')
     serializer = CalendarioSerializer(calendario, many=True)
-    pagination_class = PageNumberPagination
-    return Response(serializer.data)
+    return Response (serializer.data)
 
 
