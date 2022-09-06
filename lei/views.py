@@ -11,6 +11,8 @@ from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
     Cadeira, News, Recurso, Turma, Nota, Calendario
 from .serializers import NewsSerializer, RecursoSerializer, NotaSerializer, CalendarioSerializer
 
+from rest_framework.pagination import PageNumberPagination
+from lei.pagination import NewsPageNumberPagination
 # Create your views here.
 
 
@@ -36,6 +38,7 @@ def index(request):
 def newsList(request):
     news = News.objects.all().order_by('-id')
     serializer = NewsSerializer(news, many=True)
+    pagination = NewsPageNumberPagination
     return Response(serializer.data)
 
 
@@ -80,6 +83,7 @@ def notaList(request):
 def calendarioList(request):
     calendario = Calendario.objects.all().order_by('dataInicio')
     serializer = CalendarioSerializer(calendario, many=True)
+    pagination_class = PageNumberPagination
     return Response(serializer.data)
 
 

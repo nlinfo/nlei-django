@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from lei import pagination
 from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
     Cadeira, News, Recurso, Turma, Nota, Calendario
 
