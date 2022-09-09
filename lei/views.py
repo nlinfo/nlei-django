@@ -14,7 +14,7 @@ from .models import Docente, Categoria, AnoLetivo, AreaCientifica,\
 from .serializers import NewsSerializer, RecursoSerializer, NotaSerializer, CalendarioSerializer
 
 from rest_framework.pagination import PageNumberPagination
-from lei.pagination import NewsPageNumberPagination, CalendarioPageNumberPagination
+from lei.pagination import NewsPageNumberPagination, CalendarioPageNumberPagination, RecursoPageNumberPagination
 # Create your views here.
 
 
@@ -50,8 +50,10 @@ def newsList(request):
 @api_view(['GET'])
 def recursoList(request):
     recursos = Recurso.objects.all().order_by('-id')
-    serializer = RecursoSerializer(recursos, many=True)
-    return Response(serializer.data)
+    paginator = RecursoPageNumberPagination()
+    recurso_result = paginator.paginate_queryset(recursos, request)
+    serializer = RecursoSerializer(recurso_result, many=True)
+    return paginator.get_paginated_response(serializer.data)
 
 
 @api_view(['GET'])
@@ -90,6 +92,6 @@ def calendarioList(request):
 
     calendario = Calendario.objects.all().order_by('dataInicio')
     serializer = CalendarioSerializer(calendario, many=True)
-    return Response (serializer.data)
+    return Response(serializer.data)
 
 

@@ -1,17 +1,22 @@
 
-
 //construir a lista de recursos
-function buildRecursoList() {
+function buildRecursoList(link) {
     let files = document.getElementById('files')
 
     let url = 'http://127.0.0.1:8000/api/recursos-list/'
+
+    if (typeof (link) != "undefined") {
+        url = link
+    }
+    console.log('link: ', link)
 
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
             console.log('Data:', data)
 
-            let list = data
+            let list = data.results
+            console.log(list)
 
             //list corresponde á lista de recursos
 
@@ -137,10 +142,123 @@ function buildRecursoList() {
             }
             preencherSelects(list)
 
+
+
+
+            /*paginação*/
+                        
+            let paginacao_div = document.getElementById("pagination")
+            let last_page = Math.ceil(data.count / (data.results).length)
+
+            function paginacao() {
+
+                let link_paginas = ''
+
+                for (let p = 1; p < last_page + 1; p++) {
+                    console.log('pagina=', p)
+
+                    const pagina = `
+                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=${p}')">${p}</a>
+                    `
+                    link_paginas += pagina
+
+
+                }
+
+                function pegarNumeroDePagina(url_desejado) {
+                    console.log('novo url: ', url_desejado)
+
+                    const searchParams = new URLSearchParams(url_desejado.search);
+
+                    return searchParams.get('p')
+                }
+                const next_link = data.next
+                const prev_link = data.previous
+                console.log(next_link)
+                const newurl = new URL(next_link)
+
+                const pagAtual = parseInt(pegarNumeroDePagina(newurl)) - 1
+                const pagAnterior = pagAtual - 1
+                const pagSeguinte = parseInt(pegarNumeroDePagina(newurl))
+
+
+                printLink = (p) => {
+                    return `
+                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=${p}')">${p}</a>
+                        
+                        `;
+                }
+                //se tiver mais do que 5 paginas a serem paginadas
+                if (last_page > 5) {
+                    //se tem pagina seguinte e anterior
+                    if ((data.next != null) && (data.previous != null)) {
+
+                        imprimirLinks(printLink(pagAnterior), printLink(pagAtual), printLink(pagSeguinte))
+
+                    }
+                    // se tem pagina seguinte mas não tem anterior
+                    else if ((data.next != null) && (data.previous == null)) {
+
+
+                        imprimirLinks(pag_atual = printLink(pagAtual), pag_seguinte = printLink(pagSeguinte))
+
+                    }
+                    // se tem pagina anterior mas não tem pagina seguinte 
+                    else if ((data.next == null) && (data.previous != null)) {
+
+
+                        imprimirLinks(pag_atual = printLink(pagAnterior + 1), pag_anterior = printLink(pagAnterior))
+
+                    } else {
+                        console.log('next = null')
+                    }
+                    console.log('mais de 5 paginas')
+                    function imprimirLinks(
+                        pag_anterior = '',
+                        pag_atual = '',
+                        pag_seguinte = '') {
+
+                        paginacao_div.innerHTML = `
+                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=1')">&laquo;</a>
+                    ${pag_anterior}
+                    ${pag_atual}
+                    ${pag_seguinte}                    
+                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=last')">&raquo;</a>
+    
+                    `
+                    }
+
+                } else {
+                    console.log('menos de 5 paginas')
+                    paginacao_div.innerHTML = ''
+                    paginacao_div.innerHTML = `
+                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=1')">&laquo;</a>
+                    ${link_paginas}
+                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=last')">&raquo;</a>
+    
+                    `
+                }
+            }
+            
+            paginacao()
+
+
+
+
+
+
         })
+}
+function mudarLink(link) {
+    document.getElementById('files') = ''
+    buildNewsList(link)
 }
 
 buildRecursoList()
+
+
+
+
 
 
 //pegar um recurso especifico
@@ -159,7 +277,7 @@ function downloadFile(ID) {
         .then(function (data) {
             console.log('Recurso:', data)
 
-            let recurso = data
+            let recurso = data.results
 
             let nomeDoficheiro = document.getElementById("nomeDoFicheiro")
             let nomeDacadeira = document.getElementById("nomeDaCadeira")
@@ -168,7 +286,13 @@ function downloadFile(ID) {
 
             nomeDoficheiro.innerHTML = recurso.nome;
             nomeDacadeira.innerHTML = recurso.cadeira.nome;
-            nomeDodocente.innerHTML = recurso.docente.nome
+            const docente = recurso?.docente.nome
+            if(docente != 'undefined'){
+                nomeDodocente.innerHTML = recurso.docente.nome
+            }else{
+                nomeDodocente.innerHTML = 'recurso sem docente'
+            }
+
             anolectivo.innerHTML = recurso.anoletivo.data
 
             const link = 'http://127.0.0.1:8000/static' + recurso.ficheiro;

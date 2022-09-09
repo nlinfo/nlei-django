@@ -62,7 +62,7 @@ class Cadeira(models.Model):
 class Recurso(models.Model):
     nome = models.CharField(max_length=250)
     cadeira = models.ForeignKey(Cadeira, on_delete=models.DO_NOTHING)
-    docente = models.ForeignKey(Docente, on_delete=models.DO_NOTHING, blank=True)
+    docente = models.ForeignKey(Docente, on_delete=models.DO_NOTHING, blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     anoletivo = models.ForeignKey(AnoLetivo, on_delete=models.DO_NOTHING)
 
