@@ -189,7 +189,7 @@ function buildRecursoList(link) {
                         `;
                 }
                 //se tiver mais do que 5 paginas a serem paginadas
-                if (last_page > 5) {
+                if (last_page > 3) {
                     //se tem pagina seguinte e anterior
                     if ((data.next != null) && (data.previous != null)) {
 
@@ -250,8 +250,8 @@ function buildRecursoList(link) {
         })
 }
 function mudarLink(link) {
-    document.getElementById('files') = ''
-    buildNewsList(link)
+    document.getElementById('files').innerHTML = ''
+    buildRecursoList(link)
 }
 
 buildRecursoList()
@@ -277,7 +277,7 @@ function downloadFile(ID) {
         .then(function (data) {
             console.log('Recurso:', data)
 
-            let recurso = data.results
+            let recurso = data
 
             let nomeDoficheiro = document.getElementById("nomeDoFicheiro")
             let nomeDacadeira = document.getElementById("nomeDaCadeira")
@@ -286,8 +286,8 @@ function downloadFile(ID) {
 
             nomeDoficheiro.innerHTML = recurso.nome;
             nomeDacadeira.innerHTML = recurso.cadeira.nome;
-            const docente = recurso?.docente.nome
-            if(docente != 'undefined'){
+            const docente = recurso.docente
+            if(docente != null){
                 nomeDodocente.innerHTML = recurso.docente.nome
             }else{
                 nomeDodocente.innerHTML = 'recurso sem docente'

@@ -98,11 +98,11 @@ class Aluno(models.Model):
     nome = models.CharField(max_length=100)
     turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
     dataDeNascimento = models.DateField(default=timezone.now, blank=True)
-    numeroDeTelefone = models.PositiveIntegerField(blank=True)
-    email = models.EmailField(blank=True)
+    numeroDeTelefone = models.PositiveIntegerField(blank=True, null=True, default='00239')
+    email = models.EmailField(null=True)
+
 
 # calendário
-
 class Calendario(models.Model):
     titulo = models.CharField(max_length=200)
     dataInicio = models.DateTimeField(default=timezone.now)
