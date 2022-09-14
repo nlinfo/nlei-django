@@ -24,6 +24,7 @@ def index(request):
         # listar
         'List News': '/news-list',
         'List Recurso': '/recursos-list',
+        'List RecursoAll': '/allrecursos-list',
         'List Notas': '/notas-list',
         'List Lei': '/lei-list',
         'List calendario': '/calendario-list',
@@ -54,6 +55,14 @@ def recursoList(request):
     recurso_result = paginator.paginate_queryset(recursos, request)
     serializer = RecursoSerializer(recurso_result, many=True)
     return paginator.get_paginated_response(serializer.data)
+
+
+# retornar os recursos não paginados
+@api_view(['GET'])
+def allrecursoList(request):
+    recurso = Recurso.objects.all().order_by('-id')
+    serializer = RecursoSerializer(recurso, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])

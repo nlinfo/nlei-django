@@ -7,13 +7,13 @@ function buildNotaList() {
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
-            console.log('Data:', data)
+            //console.log('Data:', data)
 
             let NotaTurma = data
             //NotaTurma : notas agrupadas por turma
 
             let chavesturma = Object.keys(NotaTurma)
-            console.log('chaves: ', chavesturma)
+            //console.log('chaves: ', chavesturma)
 
             //iterar nos grupos de turma
             for (const chave in chavesturma) {

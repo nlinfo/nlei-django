@@ -5,17 +5,17 @@ function buildNewsList(link) {
     let info = document.getElementById('informacoes')
 
     let url = 'http://127.0.0.1:8000/api/news-list/'
-    console.log('last: ', "http://127.0.0.1:8000/api/news-list/?p=last")
+    //console.log('last: ', "http://127.0.0.1:8000/api/news-list/?p=last")
 
     if (typeof (link) != "undefined") {
         url = link
     }
-    console.log('link: ', link)
+    //console.log('link: ', link)
 
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
-            console.log('Data:', data)
+            //console.log('Data:', data)
 
             let list = data.results
 
@@ -31,6 +31,8 @@ function buildNewsList(link) {
                 for (const i in listaDeNews) {
                     let item
 
+                    let data_noticia = new Date(listaDeNews[i].data) 
+
                     //ver se os artigos têm imagem
                     if ((listaDeNews[i].imagelink == "") && (listaDeNews[i].imagem == null)) {
                         item = `
@@ -39,7 +41,7 @@ function buildNewsList(link) {
                             <div>
                                 <p> ${listaDeNews[i].corpo}</p>
                             </div>
-                            <span class="data">Data: ${listaDeNews[i].data}</span>
+                            <span class="data">Data: ${data_noticia.toUTCString()}</span>
         
                         </article>`
                     } else {
@@ -58,7 +60,7 @@ function buildNewsList(link) {
                                 <img src=${link} alt="${listaDeNews[i].cabecalho}">
                                 <p>${listaDeNews[i].corpo}</p>
                             </div>
-                            <span class="data">Data: ${listaDeNews[i].data}</span>
+                            <span class="data">Data: ${data_noticia.toUTCString()}</span>
                         </article>`
                     }
 
@@ -81,7 +83,7 @@ function buildNewsList(link) {
                 let link_paginas = ''
 
                 for (let p = 1; p < last_page + 1; p++) {
-                    console.log('pagina=', p)
+                    //console.log('pagina=', p)
 
                     const pagina = `
                         <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=${p}')">${p}</a>
@@ -92,7 +94,7 @@ function buildNewsList(link) {
                 }
 
                 function pegarNumeroDePagina(url_desejado) {
-                    console.log('novo url: ', url_desejado)
+                    //console.log('novo url: ', url_desejado)
 
                     const searchParams = new URLSearchParams(url_desejado.search);
 
@@ -100,7 +102,7 @@ function buildNewsList(link) {
                 }
                 const next_link = data.next
                 const prev_link = data.previous
-                console.log(next_link)
+                //console.log(next_link)
                 const newurl = new URL(next_link)
 
                 const pagAtual = parseInt(pegarNumeroDePagina(newurl)) - 1
@@ -138,7 +140,7 @@ function buildNewsList(link) {
                     } else {
                         console.log('next = null')
                     }
-                    console.log('mais de 5 paginas')
+                    //console.log('mais de 5 paginas')
                     function imprimirLinks(
                         pag_anterior = '',
                         pag_atual = '',
@@ -155,7 +157,7 @@ function buildNewsList(link) {
                     }
 
                 } else {
-                    console.log('menos de 5 paginas')
+                    //console.log('menos de 5 paginas')
                     paginacao_div.innerHTML = ''
                     paginacao_div.innerHTML = `
                     <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=1')">&laquo;</a>

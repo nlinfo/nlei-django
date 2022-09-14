@@ -2,17 +2,17 @@ from rest_framework import pagination
 
 
 class NewsPageNumberPagination(pagination.PageNumberPagination):
-    page_size = 3
+    page_size = 20
     page_size_query_param = 'count'
-    max_page_size = 3
+    max_page_size = 20
     page_query_param = 'p'
     last_page_strings = ('last', )
 
 
 class RecursoPageNumberPagination(pagination.PageNumberPagination):
-    page_size = 1
+    page_size = 50
     page_size_query_param = 'count'
-    max_page_size = 1
+    max_page_size = 50
     page_query_param = 'p'
     last_page_strings = ('last', )
 

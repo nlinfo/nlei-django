@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 30
 }
 
 MIDDLEWARE = [
@@ -144,6 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_HOST_USER = 'nleigeral0@gmail.com'
-EMAIL_HOST_PASSWORD = 'adcakwwnmkyduown'
+EMAIL_HOST_PASSWORD = 'xwttzvzjvcprfkum'

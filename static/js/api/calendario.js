@@ -1,8 +1,4 @@
 
-//const CLIENT_ID = '712098284825-rraotf8tm94trhoatkn0nipvhkg5v0d2.apps.googleusercontent.com';
-//const API_KEY = 'AIzaSyD1N8VmWiA0UDlsNvX7JK-Wx9dleDbSVOg';
-
-
 function buildCalendarioList() {
     let events = document.getElementById('eventos')
 
@@ -11,7 +7,7 @@ function buildCalendarioList() {
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
-            console.log('Data:', data)
+            //console.log('Data:', data)
 
 
 
@@ -26,7 +22,7 @@ function buildCalendarioList() {
             for (const evento of eventos) {
 
                 let fullDate = evento.dataInicio
-                console.log(fullDate)
+                //console.log(fullDate)
                 
                 const dia = new Date(fullDate).getDate()
                 //let diaString = (new Date(fullDate).toUTCString().split(',')[0])
@@ -34,7 +30,7 @@ function buildCalendarioList() {
                 let horainicio = (new Date(fullDate).toLocaleTimeString())
                 let horafim = (new Date(evento.dataFim).toLocaleTimeString())
       
-                console.log('mes: ', mes)
+                //console.log('mes: ', mes)
 
                 //console.log(dataAMD)
 
