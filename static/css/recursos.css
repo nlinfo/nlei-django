@@ -93,16 +93,16 @@ button:hover{
     color: #00C6CF;
 }
 
-.recurso > span {
+.recurso > div {
     display: flex;
     flex-direction: column;
 }
 
-.recurso > span p {
+.recurso > div p {
     font-weight: bold;
 }
 
-.recurso > span span {
+.recurso > div span {
     font-size: .8em;
 }
 

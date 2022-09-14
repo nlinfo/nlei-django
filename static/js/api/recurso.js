@@ -30,11 +30,11 @@ function buildRecursoList(link) {
                     let item = `
                         <a class="recurso" onclick="abrirDownload(); downloadFile(${listaDeDados[i].id})" >
                             <i class="fa-solid fa-folder-open"></i>
-                            <span>
+                            <div>
                                 <p>${listaDeDados[i].nome}</p>
                                 <span>${listaDeDados[i].cadeira.nome}</span>
                                 <span>${listaDeDados[i].anoletivo.data}</span>
-                            </span>
+                            </div>
                         </a>`
 
                     files.innerHTML += item
