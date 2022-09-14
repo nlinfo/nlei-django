@@ -95,7 +95,7 @@ def send_email(modeladmin, request, queryset):
     print(lista_email_alunos)
     template = render_to_string('frontend/email_template.html', {'turma': turmamodel, 'nota': titulo})
     email = EmailMessage(
-        'Teste bem sucedido',
+        'Aviso de nota!',
         template,
         settings.EMAIL_HOST_USER,
         lista_email_alunos
