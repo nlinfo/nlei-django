@@ -44,6 +44,7 @@ function buildCalendarioList() {
                         <span>${weekday[new Date(fullDate).getUTCDay()]}, ${horainicio}-${horafim}</span>
                         <span>${evento.titulo}</span>
                         <details>
+                            <summary>Detalhes:</summary>
                             <p>${evento.detallhe}
                             </p>
                         </details>
