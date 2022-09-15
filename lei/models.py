@@ -97,16 +97,19 @@ class Nota(models.Model):
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
     turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
-    dataDeNascimento = models.DateField(default=timezone.now, blank=True)
-    numeroDeTelefone = models.PositiveIntegerField(blank=True, null=True, default='00239')
+    dataDeNascimento = models.DateField(default=timezone.now, blank=True, verbose_name='data de nascimento')
+    numeroDeTelefone = models.PositiveIntegerField(blank=True, null=True, default='00239', verbose_name='numero de telefone')
     email = models.EmailField(null=True)
+
+    def __str__(self):
+        return self.nome
 
 
 # calendário
 class Calendario(models.Model):
     titulo = models.CharField(max_length=200)
-    dataInicio = models.DateTimeField(default=timezone.now)
-    dataFim = models.DateTimeField(default=timezone.now)
+    dataInicio = models.DateTimeField(default=timezone.now, verbose_name= 'data de inicio')
+    dataFim = models.DateTimeField(default=timezone.now, verbose_name='data de fim')
     detallhe = models.TextField()
 
     def __str__(self):

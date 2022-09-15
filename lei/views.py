@@ -50,7 +50,7 @@ def newsList(request):
 
 @api_view(['GET'])
 def recursoList(request):
-    recursos = Recurso.objects.all().order_by('-id')
+    recursos = Recurso.objects.select_related('cadeira', 'docente', 'categoria', 'anoletivo').all().order_by('-id')
     paginator = RecursoPageNumberPagination()
     recurso_result = paginator.paginate_queryset(recursos, request)
     serializer = RecursoSerializer(recurso_result, many=True)
@@ -60,7 +60,7 @@ def recursoList(request):
 # retornar os recursos não paginados
 @api_view(['GET'])
 def allrecursoList(request):
-    recurso = Recurso.objects.all().order_by('-id')
+    recurso = Recurso.objects.select_related('cadeira', 'docente', 'categoria', 'anoletivo').all().order_by('-id')
     serializer = RecursoSerializer(recurso, many=True)
     return Response(serializer.data)
 
@@ -75,7 +75,7 @@ def recursoDetail(request, pk):
 
 @api_view(['GET'])
 def notaList(request):
-    notas = Nota.objects.all().order_by('-id')
+    notas = Nota.objects.select_related('turma').all().order_by('-id')
 
     # dicionario para agrupar as notas por turma
     dicionario = {}
