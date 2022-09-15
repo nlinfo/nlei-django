@@ -10,9 +10,9 @@ class NewsPageNumberPagination(pagination.PageNumberPagination):
 
 
 class RecursoPageNumberPagination(pagination.PageNumberPagination):
-    page_size = 50
+    page_size = 30
     page_size_query_param = 'count'
-    max_page_size = 50
+    max_page_size = 30
     page_query_param = 'p'
     last_page_strings = ('last', )
 

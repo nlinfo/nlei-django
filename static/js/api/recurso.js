@@ -13,7 +13,7 @@ function buildRecursoList(link) {
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
-            //console.log('Data:', data)
+            console.log('Data:', data)
 
             let list = data.results
             //console.log(list)
@@ -194,8 +194,9 @@ function buildRecursoList(link) {
                         
                         `;
                 }
+                console.log(last_page)
                 //se tiver mais do que 5 paginas a serem paginadas
-                if (last_page > 3) {
+                if (last_page > 5) {
                     //se tem pagina seguinte e anterior
                     if ((data.next != null) && (data.previous != null)) {
 
@@ -244,6 +245,7 @@ function buildRecursoList(link) {
     
                     `
                 }
+                addactiveclass(pagAtual)
             }
 
             paginacao()
@@ -255,6 +257,7 @@ function buildRecursoList(link) {
 
         })
 }
+
 function mudarLink(link) {
     document.getElementById('files').innerHTML = ''
     buildRecursoList(link)
@@ -262,7 +265,24 @@ function mudarLink(link) {
 
 buildRecursoList()
 
+//adicionar classe active na paginação
+function addactiveclass(pag_atual) {
+    let lista_de_links = document.querySelectorAll('#pagination a')
+    //console.log(lista_de_links)
+    //console.log((parseInt(lista_de_links[1].innerHTML)))
 
+    for (const pag of lista_de_links) {
+        //console.log('1-log',pag.innerHTML, 'tipo:',typeof(parseInt(pag.innerHTML)));
+        //console.log('2-log',parseInt(pag.innerHTML))
+        
+        if (parseInt(pag.innerHTML) == pag_atual) {
+            //console.log(parseInt(pag.innerHTML),' é atual')
+            pag.classList += 'active'
+            //console.log(pag.classList)
+        }
+    }
+}
+//addactiveclass()
 
 
 

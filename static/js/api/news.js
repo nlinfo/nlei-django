@@ -166,6 +166,7 @@ function buildNewsList(link) {
     
                     `
                 }
+                addactiveclass(pagAtual)
             }
             paginacao()
 
@@ -179,4 +180,15 @@ function mudarLink(link) {
     document.getElementById('noticias').innerHTML = ''
     document.getElementById('informacoes').innerHTML = ''
     buildNewsList(link)
+}
+
+//adicionar classe active na paginação
+function addactiveclass(pag_atual) {
+    let lista_de_links = document.querySelectorAll('#pagination a')
+
+    for (const pag of lista_de_links) {
+        if (parseInt(pag.innerHTML) == pag_atual) {
+            pag.classList += 'active'
+        }
+    }
 }
