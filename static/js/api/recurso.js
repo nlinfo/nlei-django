@@ -217,7 +217,8 @@ function buildRecursoList(link) {
                         imprimirLinks(pag_atual = printLink(pagAnterior + 1), pag_anterior = printLink(pagAnterior))
 
                     } else {
-                        //console.log('next = null')
+                        //deixar a div de paginas vazia
+                        paginacao_div.innerHTML = ''
                     }
                     //console.log('mais de 5 paginas')
                     function imprimirLinks(
