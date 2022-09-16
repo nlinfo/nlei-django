@@ -4,7 +4,7 @@ from .models import Docente, Categoria, AnoLetivo, News, \
 from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 
@@ -31,10 +31,11 @@ class AnoLetivoAdmin(admin.ModelAdmin):
 
 
 # news
-class NewsAdmin(admin.ModelAdmin):
+class NewsAdmin(SummernoteModelAdmin):
     list_display = ('cabecalho', 'data', 'informacao')
     list_per_page = 50
     list_display_links = ('cabecalho', 'data')
+    summernote_fields = ('corpo',)
 
 
 # area cientifica

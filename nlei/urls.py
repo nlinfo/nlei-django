@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('api/', include('lei.urls')),
+
+    path('summernote/', include('django_summernote.urls')),
 ]
