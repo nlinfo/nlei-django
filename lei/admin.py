@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.contrib import admin
 from .models import Docente, Categoria, AnoLetivo, News, \
     AreaCientifica, Cadeira, Recurso, Turma, Nota, Aluno, Calendario
@@ -39,11 +40,11 @@ class AnoLetivoAdmin(admin.ModelAdmin):
 
 
 # news
-class NewsAdmin(SummernoteModelAdmin):
+class NewsAdmin(admin.ModelAdmin):
     list_display = ('cabecalho', 'data', 'informacao')
     list_per_page = 50
     list_display_links = ('cabecalho', 'data')
-    summernote_fields = ('corpo',)
+    # summernote_fields = ('corpo',)
 
 
 # area cientifica
@@ -222,10 +223,10 @@ class AlunoAdmin(admin.ModelAdmin):
 
 
 # calendário
-class CalendarioAdmin(SummernoteModelAdmin):
+class CalendarioAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'dataInicio', 'dataFim')
     list_per_page = 50
-    summernote_fields = ('detalhe',)
+    # summernote_fields = ('detalhe',)
 
 
 admin.site.register(Docente, DocenteAdmin)
