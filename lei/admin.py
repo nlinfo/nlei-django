@@ -11,6 +11,7 @@ import os
 import mimetypes  # um dos pacotes para baixar ficheiros
 # Import HttpResponse module (para baixar file)
 from django.http.response import HttpResponse
+from django.core.files.storage import default_storage
 
 
 # Register your models here.
@@ -67,9 +68,75 @@ class RecursoAdmin(admin.ModelAdmin):
 
 
 # turma
+
+@admin.action(description='Baixar lista de email ')
+def dowload_email_list(modeladmin, request, queryset):
+    alunos = Aluno.objects.all().order_by('nome')
+
+    # dicionario para agrupar os alunos por turma
+    dicionario = {}
+    turmas = []
+
+    for aluno in alunos:
+        if not aluno.turma.turma in dicionario:
+            dicionario[aluno.turma.turma] = []
+
+        nome = str(aluno.nome)
+        email = str(aluno.email)
+        turma = str(aluno.turma)
+        dados_aluno = f'{nome} - {email} - {turma}'
+        dicionario[aluno.turma.turma].append(dados_aluno)
+        turmas.append(aluno.turma.turma)
+    print(dicionario)
+    turmas = set(turmas)
+    nome_adicional = ''
+    for turma in turmas:
+        nome_adicional += turma
+
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    caminho = os.path.join(BASE_DIR, 'static/images/aluno')
+    nome_do_ficheiro = f'email_completo_turmas_{nome_adicional}.txt'
+
+    # escrever no ficheiro
+    with open(f'{caminho}/{nome_do_ficheiro}', 'w') as file:
+        lista_email = ''
+
+        file.write(f'Nome  -  Email - Turma\n')
+        for turma in queryset:
+            print(dicionario[turma.turma])
+            index = 1
+            file.write(f'\n\nTurma:  {str(turma)}\n')
+            for aluno in dicionario[turma.turma]:
+                file.write(f'{index}. {aluno}\n')
+                index += 1
+
+                # pegar o email do aluno pela string
+                email = aluno.split('-')
+                lista_email += email[1]
+
+        file.write(f'\n\nLista com todos os emails:\n {lista_email}\n')
+
+    # Open the file for reading content
+    filepath = f'{caminho}/{nome_do_ficheiro}'
+    path = open(filepath, 'r')
+    # Set the mime type
+    mime_type, _ = mimetypes.guess_type(filepath)
+    # Set the return value of the HttpResponse
+    response = HttpResponse(path, content_type=mime_type)
+    # Set the HTTP header for sending to browser
+    response['Content-Disposition'] = "attachment; filename=%s" % nome_do_ficheiro
+    # Return the response value
+    return response
+
+    print('path',default_storage.size(f'{caminho}/{nome_do_ficheiro}'),
+    default_storage.exists(f'{caminho}/{nome_do_ficheiro}'))
+
+
+
 class TurmaAdmin(admin.ModelAdmin):
     list_display = ('turma', 'sala')
     list_per_page = 50
+    actions = [dowload_email_list]
 
 
 # nota
@@ -119,6 +186,7 @@ class NotaAdmin(admin.ModelAdmin):
 
 
 # aluno
+
 @admin.action(description='Baixar lista de email completo')
 def dowload_fullemail_list(modeladmin, request, queryset):
     alunos = Aluno.objects.all().order_by('nome')
@@ -130,12 +198,13 @@ def dowload_fullemail_list(modeladmin, request, queryset):
     with open(f'{caminho}/{nome_do_ficheiro}', 'w') as file:
         lista_email = ''
         index = 1
-        file.write(f'Nome  -  Email\n')
+        file.write(f'Nome  -  Email - Turma\n\n')
         for aluno in alunos:
-            nome = str(aluno.nome)
-            email = str(aluno.email)
+            nome = aluno.nome
+            email = aluno.email
+            turma = aluno.turma.turma
             lista_email += f' {email} '
-            file.write(f'{index}. {nome} - {email}\n')
+            file.write(f'{index}. {nome} - {email} - {turma}\n')
             index += 1
 
         file.write(f'\n\nLista com todos os emails:\n {lista_email}\n')
