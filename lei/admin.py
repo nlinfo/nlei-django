@@ -87,7 +87,7 @@ def dowload_email_list(modeladmin, request, queryset):
         dados_aluno = f'{nome} - {email} - {turma}'
         dicionario[aluno.turma.turma].append(dados_aluno)
         turmas.append(aluno.turma.turma)
-    print(dicionario)
+    # print(dicionario)
     turmas = set(turmas)
     nome_adicional = ''
     for turma in turmas:
@@ -103,7 +103,7 @@ def dowload_email_list(modeladmin, request, queryset):
 
         file.write(f'Nome  -  Email - Turma\n')
         for turma in queryset:
-            print(dicionario[turma.turma])
+            # print(dicionario[turma.turma])
             index = 1
             file.write(f'\n\nTurma:  {str(turma)}\n')
             for aluno in dicionario[turma.turma]:
@@ -128,10 +128,6 @@ def dowload_email_list(modeladmin, request, queryset):
     # Return the response value
     return response
 
-    print('path',default_storage.size(f'{caminho}/{nome_do_ficheiro}'),
-    default_storage.exists(f'{caminho}/{nome_do_ficheiro}'))
-
-
 
 class TurmaAdmin(admin.ModelAdmin):
     list_display = ('turma', 'sala')
@@ -150,27 +146,23 @@ def send_email(modeladmin, request, queryset):
 
     turmamodel = Turma.objects.get(id=id_turma)
 
-    print(nota.values(), 'id:', id_turma)
-    print('modeladmin', titulo)
+    # print(nota.values(), 'id:', id_turma)
+    # print('modeladmin', titulo)
 
     # importar alunos
     alunos = Aluno.objects.filter(turma_id=id_turma).values()
-    print(alunos)
     lista_alunos = []
     lista_email_alunos = []
-    print(lista_email_alunos)
 
     for aluno in alunos:
-        # print(aluno['nome'], aluno['email'])
-        print(aluno)
         lista_alunos.append([aluno['nome'], aluno['email']])
         lista_email_alunos.append(aluno['email'])
 
     # enviar email
-    print(lista_email_alunos)
+    # print(lista_email_alunos)
     template = render_to_string('frontend/email_template.html', {'turma': turmamodel, 'nota': titulo})
     email = EmailMessage(
-        'Aviso de nota!',
+        'Aviso de publicação de nota!',
         template,
         settings.EMAIL_HOST_USER,
         lista_email_alunos

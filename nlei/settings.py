@@ -142,11 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nleigeral0@gmail.com'
-EMAIL_HOST_PASSWORD = 'ryinzxlfaicllxmz'
+EMAIL_HOST_USER = 'nleigeral0@outlook.com'
+EMAIL_HOST_PASSWORD = 'Nlinform@tica1'
 
 # django summernote
 INSTALLED_APPS += ('django_summernote', )
