@@ -324,7 +324,7 @@ function downloadFile(ID) {
 
             const link = 'http://127.0.0.1:8000/static' + recurso.ficheiro;
             let buttonLink = document.getElementById("baixar_ficheiro")
-            buttonLink.innerHTML = `<a href=${link} >Download</a>`
+            buttonLink.innerHTML = `<a href=${link} download>Download</a>`
 
         })
 }
