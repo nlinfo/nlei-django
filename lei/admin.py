@@ -222,9 +222,10 @@ class AlunoAdmin(admin.ModelAdmin):
 
 
 # calendário
-class CalendarioAdmin(admin.ModelAdmin):
+class CalendarioAdmin(SummernoteModelAdmin):
     list_display = ('titulo', 'dataInicio', 'dataFim')
     list_per_page = 50
+    summernote_fields = ('detalhe',)
 
 
 admin.site.register(Docente, DocenteAdmin)
