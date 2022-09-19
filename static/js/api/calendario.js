@@ -45,7 +45,7 @@ function buildCalendarioList() {
                         <span>${evento.titulo}</span>
                         <details>
                             <summary>Detalhes:</summary>
-                            <p>${evento.detallhe}
+                            <p>${evento.detalhe}
                             </p>
                         </details>
                         <a href="#">Ver evento</a>

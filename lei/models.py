@@ -110,7 +110,7 @@ class Calendario(models.Model):
     titulo = models.CharField(max_length=200)
     dataInicio = models.DateTimeField(default=timezone.now, verbose_name= 'data de inicio')
     dataFim = models.DateTimeField(default=timezone.now, verbose_name='data de fim')
-    detallhe = models.TextField()
+    detalhe = models.TextField()
 
     def __str__(self):
         return self.titulo
