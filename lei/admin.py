@@ -5,6 +5,13 @@ from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 from django_summernote.admin import SummernoteModelAdmin
+from pathlib import Path
+import os
+# Import mimetypes module
+import mimetypes  # um dos pacotes para baixar ficheiros
+# Import HttpResponse module (para baixar file)
+from django.http.response import HttpResponse
+
 
 # Register your models here.
 
@@ -112,10 +119,45 @@ class NotaAdmin(admin.ModelAdmin):
 
 
 # aluno
+@admin.action(description='Baixar lista de email completo')
+def dowload_fullemail_list(modeladmin, request, queryset):
+    alunos = Aluno.objects.all().order_by('nome')
+
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    caminho = os.path.join(BASE_DIR, 'static/images/aluno')
+    nome_do_ficheiro = 'email_completo.txt'
+
+    with open(f'{caminho}/{nome_do_ficheiro}', 'w') as file:
+        lista_email = ''
+        index = 1
+        file.write(f'Nome  -  Email\n')
+        for aluno in alunos:
+            nome = str(aluno.nome)
+            email = str(aluno.email)
+            lista_email += f' {email} '
+            file.write(f'{index}. {nome} - {email}\n')
+            index += 1
+
+        file.write(f'\n\nLista com todos os emails:\n {lista_email}\n')
+
+    # Open the file for reading content
+    filepath = f'{caminho}/{nome_do_ficheiro}'
+    path = open(filepath, 'r')
+    # Set the mime type
+    mime_type, _ = mimetypes.guess_type(filepath)
+    # Set the return value of the HttpResponse
+    response = HttpResponse(path, content_type=mime_type)
+    # Set the HTTP header for sending to browser
+    response['Content-Disposition'] = "attachment; filename=%s" % nome_do_ficheiro
+    # Return the response value
+    return response
+
+
 class AlunoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email', 'numeroDeTelefone', 'turma')
     list_per_page = 50
     list_editable = ('email', 'numeroDeTelefone')
+    actions = [dowload_fullemail_list]
 
 
 # calendário
