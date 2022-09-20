@@ -1,7 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
 
-    Alunos da turma {{turma.turma}} sala {{turma.sala}}
-    A nota de {{nota}} foi colocada!
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    Para ter acesso à nota basta aceder à http://127.0.0.1:8000/notas/
 
-    Boa sorte a todos!
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            padding: .3rem;
+        }
+
+        h1 {
+            background-color: rgba(0, 198, 207, 0.36);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        p span {
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #3B3B3B;
+            color: #fff;
+            display: block;
+            max-width: fit-content;
+            padding: .5rem 1rem;
+            border-radius: 2px;
+            margin: 1rem 2rem;
+
+            transition: background-color .5s;
+        }
+
+        a:hover {
+            background-color: #3b3b3bbe;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Aviso de colocação de nota!</h1>
+    <main>
+
+        <p>Alunos da span turma <span> {{turma.turma}}</span> sala <span> {{turma.sala}}</span>, a nota de <span> {{nota}}</span> foi colocada!</p>
+
+        <p>Para ter acesso à nota basta aceder à página de notas no site da NLEI:</p>
+        <a href="http://127.0.0.1:8000/notas/" target="_blank" referrerpolicy="no-referrer">Página de notas</a>
+        <p>Boa sorte a todos!</p>
+
+
+    </main>
+
+</body>
+
+</html>
