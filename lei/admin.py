@@ -168,6 +168,7 @@ def send_email(modeladmin, request, queryset):
         settings.EMAIL_HOST_USER,
         lista_email_alunos
     )
+    email.content_subtype = "html"
     email.fail_silently = False
     email.send()
 
