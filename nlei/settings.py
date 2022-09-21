@@ -146,7 +146,7 @@ EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nleigeral0@outlook.com'
-EMAIL_HOST_PASSWORD = 'Nlinform@tica1'
+EMAIL_HOST_PASSWORD = 'auascpcgjvmpfbsn'
 
 # django summernote
 INSTALLED_APPS += ('django_summernote', )
