@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt">
+{% load pwa %}
+{% progressive_web_app_meta %}
 
 <head>
 
@@ -11,15 +13,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static './imagens/icons/nlei_icon_x144.svg' %}">
     <link rel="icon" href="{% static './imagens/icons/nlei_icon_x96.png' %}" type="image/png">
 
-    <link rel="manifest" href="{% static './js/Manifest.webmanifest' %}">
-    
+    <!--<link rel="manifest" href="{% static './js/Manifest.webmanifest' %}">-->
+
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NLEI</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static './css/navBar.css' %}">
     <link rel="stylesheet" href="{% static './css/index.css' %}">
 
@@ -46,8 +50,9 @@
     <main>
 
         <section class="introducao">
-            <div >
-                <p>Bem vindo ao <br> Núcleo de Licenciatura em <br> <span>Engenharia Informática</span>  <br> da Universidade Lusiada.</p>
+            <div>
+                <p>Bem vindo ao <br> Núcleo de Licenciatura em <br> <span>Engenharia Informática</span> <br> da
+                    Universidade Lusiada.</p>
                 <p>Aqui respiramos tecnológia</p>
 
                 <a href="#">Explorar</a>
@@ -55,9 +60,9 @@
             </div>
             <img src="{% static './imagens/cherry-689.png' %}" alt="programmer">
         </section>
-        
 
-          <!-- mais opções-->
+
+        <!-- mais opções-->
         <div id="links_git_mail">
             <div id="ellips_xmark"><i class="fa-solid fa-xmark fa-ellipsis-vertical" id="abrir_fecharLinks"></i></div>
             <div id="divComLinks">
