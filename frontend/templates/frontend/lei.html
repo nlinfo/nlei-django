@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt">
-
+{% load pwa %}
+{% progressive_web_app_meta %}
 <head>
     
     <meta name="description" content="Núcleo formado por alunos de engenharia informática da Universidade lusiadas">
@@ -27,8 +28,8 @@
     <link rel="stylesheet" href="{% static './css/recursos.css' %}">
     <link rel="stylesheet" href="{% static './css/lei.css' %}">
     
-    <script src="{% static './js/sw.js ' %}"></script>
-    <script src="{% static './js/app.js ' %}"></script>
+    <!--<script src="{% static './js/sw.js ' %}"></script>
+    <script src="{% static './js/app.js ' %}"></script>-->
 
 
 </head>

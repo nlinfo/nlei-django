@@ -1,7 +1,7 @@
 //important for service worker
 
 // Registering Service Worker
-window.addEventListener('load', () =>{
+/*window.addEventListener('load', () =>{
     registerSW()
 })
 
@@ -14,4 +14,4 @@ async function registerSW(){
             console.log('SW registration failed!');
         }
     }
-}
+}*/
