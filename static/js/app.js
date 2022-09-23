@@ -8,7 +8,7 @@ window.addEventListener('load', () =>{
 async function registerSW(){
     if('serviceWorker' in navigator){
         try{
-            await navigator.serviceWorker.register('./sw.js')
+            await navigator.serviceWorker.register('../../static/js/sw.js')
             console.log('SW registred!')
         } catch(e){
             console.log('SW registration failed!');

@@ -39,6 +39,7 @@
         "purpose": "maskable"
       }
     ],
+    "id":"../../static/js",
     "start_url": "/",
     "theme_color": "#00C6CF",
     "background_color": "#3B3B3B",

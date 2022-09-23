@@ -1,5 +1,5 @@
 
-/**/ 
+/**/
 const cacheName = 'nlei'
 
 self.addEventListener('install', function(event){
