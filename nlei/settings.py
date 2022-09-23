@@ -157,7 +157,7 @@ INSTALLED_APPS += ('django_summernote', )
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 PWA_APP_NAME = 'Núcleo de Licenciatura em engenharia Informáica'
-PWA_APP_SHORT = 'NLEI'
+PWA_APP_SHORT_NAME = 'NLEI'
 PWA_APP_DESCRIPTION = "Núcleo formado por alunos de engenharia informática da Universidade lusiadas"
 PWA_APP_THEME_COLOR = '#00C6CF'
 PWA_APP_BACKGROUND_COLOR = '#3B3B3B'
