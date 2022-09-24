@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('frontend.urls')),
-    path('api/', include('lei.urls')),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^$', include('frontend.urls')),
+    re_path(r'^api/', include('lei.urls')),
 
-    path('', include('pwa.urls')),
-    path('summernote/', include('django_summernote.urls')),
+    re_path(r'^$', include('pwa.urls')),
+    re_path(r'^summernote/', include('django_summernote.urls')),
 ]
