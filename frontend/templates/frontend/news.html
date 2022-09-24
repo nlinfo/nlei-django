@@ -3,16 +3,17 @@
 <html lang="pt">
 {% load pwa %}
 {% progressive_web_app_meta %}
+
 <head>
-    
+
     <meta name="description" content="Núcleo formado por alunos de engenharia informática da Universidade lusiadas">
     <meta name="keywords" content="nlei, universidade lusiada, lusiada">
     <meta name="author" content="NLEI Members">
     <meta name="theme-color" content="#3B3B3B">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static './imagens/icons/nlei_icon_x144.svg' %}">
     <link rel="icon" href="{% static './imagens/icons/nlei_icon_x96.png' %}" type="image/png">
-    
-        <!--<link rel="manifest" href="{% static './js/Manifest.webmanifest' %}">-->
+
+    <!--<link rel="manifest" href="{% static './js/Manifest.webmanifest' %}">-->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="{% static './css/navBar.css' %}">
     <link rel="stylesheet" href="{% static './css/index.css' %}">
     <link rel="stylesheet" href="{% static './css/news.css' %}">
-    
+
     <!--<script src="{% static './js/sw.js ' %}"></script>
     <script src="{% static './js/app.js ' %}"></script>-->
 
@@ -53,7 +54,7 @@
             <input type="checkbox" id="informacao" style="display: none;">
         </div>
         <section id="noticias">
-            <article class="noticia">
+            <!--<article class="noticia">
                 <h2>Where does it come from?</h2>
                 <div>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus enim iusto quisquam, culpa
@@ -64,38 +65,11 @@
                 </div>
                 <span class="data">Data: 22/08/2022</span>
 
-            </article>
-            <article class="noticia">
-                <h2>Why do we use it?</h2>
-                <div>
-                    <img src="{% static './imagens/th-1669281805.jpg' %}" alt="">
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus enim iusto quisquam, culpa
-                        ratione blanditiis optio dolor, neque, repudiandae nesciunt aut veritatis modi ducimus illo cum
-                        debitis magnam natus aperiam.</p>
-                </div>
-            </article>
-            <article class="noticia">
-                <h2>Where does it come from?</h2>
-                <div>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus enim iusto quisquam, culpa
-                        ratione blanditiis optio dolor, neque, repudiandae nesciunt aut veritatis modi ducimus illo cum
-                        debitis magnam natus aperiam.</p>
-                </div>
-            </article>
-            <article class="noticia">
-                <h2>Where does it come from?</h2>
-                <div>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus enim iusto quisquam, culpa
-                        ratione blanditiis optio dolor, neque, repudiandae nesciunt aut veritatis modi ducimus illo cum
-                        debitis magnam natus aperiam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam
-                        dolorum soluta perferendis harum. Culpa, sunt recusandae. Itaque deleniti animi accusamus
-                        repellendus! Facilis quos magnam ipsa vel ab doloremque perspiciatis? Eos?</p>
-                </div>
-                
-            </article>
+            </article>-->
+
         </section>
         <section id="informacoes">
-            <article class="noticia">
+            <!--<article class="noticia">
                 <h2>Aviso!</h2>
                 <div>
                     <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.a5g-2NQGpUuaA0FJXXLY8QHaHc%26pid%3DApi&f=1" alt="">
@@ -103,21 +77,7 @@
                         ratione blanditiis optio dolor, neque, repudiandae nesciunt aut veritatis modi ducimus illo cum
                         debitis magnam natus aperiam.</p>
                 </div>
-            </article>
-            <article class="noticia">
-                <h2>Lorem ipsum dolor sit.</h2>
-                <div>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus enim iusto quisquam, culpa
-                        ratione blanditiis optio dolor, neque, repudiandae nesciunt aut veritatis modi ducimus illo cum
-                        debitis magnam natus aperiam.</p>
-                </div>
-                <article class="noticia">
-                    <h2>Why do we use it?</h2>
-                    <div>
-                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel quia dolor maxime itaque, quo sit alias impedit labore corporis placeat temporibus deleniti mollitia velit quibusdam repellat doloribus voluptate excepturi aperiam reiciendis facere similique consequuntur. Impedit unde earum quis itaque blanditiis natus fuga quo adipisci repudiandae explicabo accusantium, cumque pariatur atque!</p>
-                    </div>
-                </article>
-            </article>
+            </article>-->
         </section>
 
         <!--pagination-->
@@ -133,15 +93,15 @@
 
 
     </main>
-    
-          <!-- mais opções-->
-          <div id="links_git_mail">
-            <div id="ellips_xmark"><i class="fa-solid fa-xmark fa-ellipsis-vertical" id="abrir_fecharLinks"></i></div>
-            <div id="divComLinks">
-                <a target="_blank" href="https://github.com/nlinfo"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:nleigeral0@gmail.com"><i class="fa-solid fa-at"></i></a>
-            </div>
+
+    <!-- mais opções-->
+    <div id="links_git_mail">
+        <div id="ellips_xmark"><i class="fa-solid fa-xmark fa-ellipsis-vertical" id="abrir_fecharLinks"></i></div>
+        <div id="divComLinks">
+            <a target="_blank" href="https://github.com/nlinfo"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:nleigeral0@gmail.com"><i class="fa-solid fa-at"></i></a>
         </div>
+    </div>
 
 
     <script src="{% static './js/index.js' %}"></script>
