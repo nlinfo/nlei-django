@@ -13,7 +13,7 @@ function buildRecursoList(link) {
     fetch(url)
         .then((response) => response.json())
         .then(function (data) {
-            console.log('Data:', data)
+            //console.log('Data:', data)
 
             let list = data.results
             //console.log(list)
