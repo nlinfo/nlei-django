@@ -1,0 +1,212 @@
+h2 {
+    background-color: #00C6CF;
+    color: #fff;
+    width: fit-content;
+    margin: 4rem auto 2rem;
+
+    padding: .3rem 2rem;
+    font-size: 1.1em;
+    border-radius: 3px;
+}
+
+/*barra de pesquisa*/
+
+#top_bar {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+
+    gap: 2rem;
+
+    margin: 3rem 1rem 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: .3rem .6rem;
+    background-color: #3B3B3B;
+    color: #fff;
+
+    transition: background-color .5s;
+
+}
+button:hover{
+    background-color: #3b3b3b92;
+}
+
+#top_bar>div {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    place-self: center;
+
+}
+
+#top_bar input[type=search] {
+    border: 3px solid #00C6CF;
+    max-width: 20rem;
+}
+
+#top_bar>div button {
+    background-color: #fff;
+}
+
+#top_bar i {
+    color: #00C6CF;
+    font-size: 1.1rem;
+}
+
+/*ficheiros*/
+
+#files {
+
+    margin: 5rem 2rem 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.recurso {
+
+    width: 20rem;
+
+    text-decoration: none;
+    color: #3B3B3B;
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    align-items: baseline;
+    padding: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+
+    transition: background-color 1.5s;
+}
+.recurso:hover{    
+    background-color: rgba(0, 197, 207, 0.573);
+}
+
+.recurso i {
+    color: #00C6CF;
+}
+
+.recurso > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.recurso > div p {
+    font-weight: bold;
+}
+
+.recurso > div span {
+    font-size: .8em;
+}
+
+
+/*filtro*/
+
+.fixedSession{
+    position: fixed;
+    visibility: hidden;
+    top: 15%;
+    right: 20%;
+    bottom: 15%;
+    left: 20%;
+
+    background-color: rgb(59, 59, 59, .7);
+}
+#fechar_filtro, #fechar_download{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    color: #3B3B3B;
+    font-weight: bold;
+}
+
+#filtro form {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 35%;
+    height: 100%;
+    margin: auto ;  
+
+    color: #fff;
+}
+form p{
+    text-align: center;
+}
+
+form select{
+    margin-bottom: 1rem;  
+    padding: .2rem .4rem;
+}
+
+
+#download {
+    color: #fff;
+    display: grid;
+    place-items: center;
+
+}
+#fechar_download{
+    border: none;
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+
+#download div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+#download div p:first-of-type{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+#download div button{
+    margin-top: 1rem;
+}
+button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+/*pagination*/
+.pagination {
+    margin-top: 7rem;
+}
+
+
+@media screen and (max-width: 645px) {
+    #filtro form {
+
+        width: 50%;
+    }
+    .fixedSession{
+        top: 15%;
+        right: 5%;
+        bottom: 15%;
+        left: 5%;
+    
+    }
+}
+
+@media screen and (max-width: 333px) {
+
+    #top_bar input[type=search] {
+        max-width: 12rem;
+    }
+}

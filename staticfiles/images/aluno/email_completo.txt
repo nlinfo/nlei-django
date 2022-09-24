@@ -1,0 +1,12 @@
+Nome  -  Email - Turma
+
+1. Ana Paula - edivaldoluisb16@gmail.com - D
+2. Carlos Fonseca - 04carlosfonseca@gmail.com - A
+3. Guilherme Mendonça - edivaldoluisb@gmail.com - B
+4. Joana Magalhãs - joanamagalhas@gmail.com - B
+5. Maria da Graça - edivaldoluisb@gmail.com - D
+6. Mario da Silva - mariosilva@gmail.com - D
+
+
+Lista com todos os emails:
+  edivaldoluisb16@gmail.com  04carlosfonseca@gmail.com  edivaldoluisb@gmail.com  joanamagalhas@gmail.com  edivaldoluisb@gmail.com  mariosilva@gmail.com 

@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*menu*/
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: #3B3B3B;
+    font-weight: bold;
+}
+
+header h1 a {
+    color: #00C6CF;
+}
+
+header a {
+    text-decoration: none;
+    color: #3B3B3B;
+}
+
+header nav {
+    min-width: 50%;
+}
+
+header ul {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.1em;
+}
+header ul li{
+    
+    padding: 0.2rem 0.5rem;
+    transition: background-color .5s;
+}
+@media screen and (min-width: 654px) {
+
+    header ul li:hover{
+    
+        background-color: rgb(0, 198, 207, .4);
+        padding: 0.2rem 0.5rem;
+        border-radius: 2px;
+    }
+}
+
+
+/*responsividade*/
+
+@media screen and (max-width: 1030px) {
+
+    header nav {
+        min-width: 60%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    header nav {
+        min-width: 70%;
+    }
+}
+
+/*MENU MOBILE*/
+
+/*botão menu*/
+/*o botão não ficará a mostra antes do tamanho
+de tela ser 654*/
+#botao_menu {
+    display: none; 
+    cursor: pointer;
+}
+
+@media screen and (max-width: 645px) {
+
+
+    /*botão menu*/
+    #botao_menu {
+        background-color: rgb(0, 197, 207, .36);
+        padding: .3rem .5rem;
+        border-radius: 2px;
+        display: block;
+
+    }
+
+    #botao_menu i {
+        color: #3B3B3B;
+    }
+
+    .menu_mobile {
+        display: flex;
+    }
+
+
+    header nav ul {
+        position: fixed;
+
+        z-index: 1;
+        bottom: 0;
+        top: 5rem;
+        left: 0;
+        right: 0;
+
+        background-color: #fff;
+        display: none;
+        /*display: flex;*/
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+    }
+
+    header nav ul li {
+        background-color: rgb(0, 197, 207, .3);
+        width: 25%;
+        text-align: center;
+        padding: .3rem .2rem;
+        border-radius: 3px;
+
+    }
+}
+
+@media screen and (max-width: 495px) {
+
+    header nav ul li {
+        width: 40%;
+    }
+}
