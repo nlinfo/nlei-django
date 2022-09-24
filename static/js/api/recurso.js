@@ -128,19 +128,28 @@ function buildRecursoList(link) {
                         let anoLectivo = document.getElementById("ano_lectivo")
                         let cadeiraSelect = document.getElementById("selectCadeira")
 
+                        let ano = new Set(), cadeira = new Set()
+
                         for (const recurso of lista_completa_de_recursos) {
                             let recursoCadeira = recurso.cadeira.nome
                             let recursoSilga = recurso.cadeira.sigla
                             let recursoAno = recurso.anoletivo.data
                             //console.log(recursoCadeira, recursoAno, 'preencher')
 
-                            let ano = `<option value="${recursoAno}">${recursoAno}</option>`
-                            //console.log('ano feito')
+                            let _ano = '' , _cadeira = ''
+                            if (!(ano.has(recursoAno))) {
+                                _ano = `<option value="${recursoAno}">${recursoAno}</option>`
+                            }
 
-                            let cadeira = `<option value="${recursoSilga}">${recursoCadeira}</option>`
+                            if (!(cadeira.has(recursoSilga))) {
+                                _cadeira = `<option value="${recursoSilga}">${recursoCadeira}</option>`
+                            }
 
-                            anoLectivo.innerHTML += ano
-                            cadeiraSelect.innerHTML += cadeira
+                            ano.add(recursoAno)
+                            cadeira.add(recursoSilga)
+
+                            anoLectivo.innerHTML += _ano
+                            cadeiraSelect.innerHTML += _cadeira
 
                         }
 
@@ -275,7 +284,7 @@ function addactiveclass(pag_atual) {
     for (const pag of lista_de_links) {
         //console.log('1-log',pag.innerHTML, 'tipo:',typeof(parseInt(pag.innerHTML)));
         //console.log('2-log',parseInt(pag.innerHTML))
-        
+
         if (parseInt(pag.innerHTML) == pag_atual) {
             //console.log(parseInt(pag.innerHTML),' é atual')
             pag.classList += 'active'
