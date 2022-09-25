@@ -21,6 +21,6 @@ urlpatterns = {
     path('', include('frontend.urls')),
     path('api/', include('lei.urls')),
 
-    #re_path(r'^$', include('pwa.urls')),
+    # re_path(r'^$', include('pwa.urls')),
     path('summernote/', include('django_summernote.urls')),
 }
