@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt">
-{% load pwa %}
-{% progressive_web_app_meta %}
+
 <head>
     
     <meta name="description" content="Núcleo formado por alunos de engenharia informática da Universidade lusiadas">
@@ -12,7 +11,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static './imagens/icons/nlei_icon_x144.svg' %}">
     <link rel="icon" href="{% static './imagens/icons/nlei_icon_x96.png' %}" type="image/png">
     
-    <!--<link rel="manifest" href="{% static './js/Manifest.webmanifest' %}">-->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,9 +25,6 @@
     <link rel="stylesheet" href="{% static './css/navBar.css' %}">
     <link rel="stylesheet" href="{% static './css/recursos.css' %}">
     <link rel="stylesheet" href="{% static './css/lei.css' %}">
-    
-    <!--<script src="{% static './js/sw.js ' %}"></script>
-    <script src="{% static './js/app.js ' %}"></script>-->
 
 
 </head>
@@ -53,7 +48,7 @@
     <h2>Licenciatura em Engenharia Informatica</h2>
 
     <div class="image-div">
-        <img src="{% static 'imagens/informatica.gif' %}" />
+        <img src="{% static 'imagens/informatica.gif' %}" alt="robô"/>
     </div>
     <main>
 
