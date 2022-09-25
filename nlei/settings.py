@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-rb$efk*_1a1dpp=*nqgtjg8qlgkm_(zyk-6z=rh0r@uaod!9k%
 DEBUG = False  # False for deploy
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app/']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'rest_framework',
     'pwa',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -51,6 +52,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
