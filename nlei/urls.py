@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-urlpatterns = {
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('api/', include('lei.urls')),
 
     # re_path(r'^$', include('pwa.urls')),
     path('summernote/', include('django_summernote.urls')),
-}
+]
