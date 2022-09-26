@@ -2,7 +2,7 @@
 function buildCalendarioList() {
     let events = document.getElementById('eventos')
 
-    let url = 'http://127.0.0.1:8000/api/calendario-list/'
+    let url = 'https://nlei.up.railway.app/api/calendario-list/'
 
     fetch(url)
         .then((response) => response.json())

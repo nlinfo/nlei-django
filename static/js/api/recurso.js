@@ -3,7 +3,7 @@
 function buildRecursoList(link) {
     let files = document.getElementById('files')
 
-    let url = 'http://127.0.0.1:8000/api/recursos-list/'
+    let url = 'https://nlei.up.railway.app/api/recursos-list/'
 
     if (typeof (link) != "undefined") {
         url = link
@@ -42,7 +42,7 @@ function buildRecursoList(link) {
                 }
             }
 
-            fetch('http://127.0.0.1:8000/api/allrecursos-list/')
+            fetch('https://nlei.up.railway.app/api/allrecursos-list/')
                 .then((response) => response.json())
                 .then(function (lista_completa_de_recursos) {
                     //console.log(lista_completa_de_recursos)
@@ -173,7 +173,7 @@ function buildRecursoList(link) {
                     //console.log('pagina=', p)
 
                     const pagina = `
-                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=${p}')">${p}</a>
+                        <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=${p}')">${p}</a>
                     `
                     link_paginas += pagina
 
@@ -199,7 +199,7 @@ function buildRecursoList(link) {
 
                 printLink = (p) => {
                     return `
-                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=${p}')">${p}</a>
+                        <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=${p}')">${p}</a>
                         
                         `;
                 }
@@ -236,11 +236,11 @@ function buildRecursoList(link) {
                         pag_seguinte = '') {
 
                         paginacao_div.innerHTML = `
-                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=1')">&laquo;</a>
+                    <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=1')">&laquo;</a>
                     ${pag_anterior}
                     ${pag_atual}
                     ${pag_seguinte}                    
-                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=last')">&raquo;</a>
+                    <a href="" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=last')">&raquo;</a>
     
                     `
                     }
@@ -249,9 +249,9 @@ function buildRecursoList(link) {
                     //console.log('menos de 5 paginas')
                     paginacao_div.innerHTML = ''
                     paginacao_div.innerHTML = `
-                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=1')">&laquo;</a>
+                    <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=1')">&laquo;</a>
                     ${link_paginas}
-                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/recursos-list/?p=last')">&raquo;</a>
+                    <a href="" onclick="mudarLink('https://nlei.up.railway.app/api/recursos-list/?p=last')">&raquo;</a>
     
                     `
                 }
@@ -306,7 +306,7 @@ function downloadFile(ID) {
     //console.log('url:', recursoID)
     //console.log(ID)
 
-    let url = `http://127.0.0.1:8000/api/recursos-detail/${ID}/`
+    let url = `https://nlei.up.railway.app/api/recursos-detail/${ID}/`
 
     fetch(url)
         .then((response) => response.json())
@@ -331,7 +331,7 @@ function downloadFile(ID) {
 
             anolectivo.innerHTML = recurso.anoletivo.data
 
-            const link = 'http://127.0.0.1:8000/static' + recurso.ficheiro;
+            const link = 'https://nlei.up.railway.app/static' + recurso.ficheiro;
             let buttonLink = document.getElementById("baixar_ficheiro")
             buttonLink.innerHTML = `<a href=${link} download>Download</a>`
 

@@ -4,7 +4,7 @@ function buildNewsList(link) {
     let news = document.getElementById('noticias')
     let info = document.getElementById('informacoes')
 
-    let url = 'http://127.0.0.1:8000/api/news-list/'
+    let url = 'https://nlei.up.railway.app/api/news-list/'
     //console.log('last: ', "http://127.0.0.1:8000/api/news-list/?p=last")
 
     if (typeof (link) != "undefined") {
@@ -50,7 +50,7 @@ function buildNewsList(link) {
                         if (listaDeNews[i].imagelink != "") {
                             link = listaDeNews[i].imagelink
                         } else {
-                            link = 'http://127.0.0.1:8000/static' + listaDeNews[i].imagem
+                            link = 'https://nlei.up.railway.app/static' + listaDeNews[i].imagem
                         }
 
                         item = `            
@@ -86,7 +86,7 @@ function buildNewsList(link) {
                     //console.log('pagina=', p)
 
                     const pagina = `
-                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=${p}')">${p}</a>
+                        <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=${p}')">${p}</a>
                     `
                     link_paginas += pagina
 
@@ -112,7 +112,7 @@ function buildNewsList(link) {
 
                 printLink = (p) => {
                     return `
-                        <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=${p}')">${p}</a>
+                        <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=${p}')">${p}</a>
                         
                         `;
                 }
@@ -148,11 +148,11 @@ function buildNewsList(link) {
                         pag_seguinte = '') {
 
                         paginacao_div.innerHTML = `
-                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=1')">&laquo;</a>
+                    <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=1')">&laquo;</a>
                     ${pag_anterior}
                     ${pag_atual}
                     ${pag_seguinte}                    
-                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=last')">&raquo;</a>
+                    <a href="" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=last')">&raquo;</a>
     
                     `
                     }
@@ -161,9 +161,9 @@ function buildNewsList(link) {
                     //console.log('menos de 5 paginas')
                     paginacao_div.innerHTML = ''
                     paginacao_div.innerHTML = `
-                    <a href="#" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=1')">&laquo;</a>
+                    <a href="#" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=1')">&laquo;</a>
                     ${link_paginas}
-                    <a href="" onclick="mudarLink('http://127.0.0.1:8000/api/news-list/?p=last')">&raquo;</a>
+                    <a href="" onclick="mudarLink('https://nlei.up.railway.app/api/news-list/?p=last')">&raquo;</a>
     
                     `
                 }

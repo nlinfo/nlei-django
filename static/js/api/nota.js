@@ -2,7 +2,7 @@
 function buildNotaList() {
     let notas = document.getElementById('notas')
 
-    let url = 'http://127.0.0.1:8000/api/notas-list/'
+    let url = 'https://nlei.up.railway.app/api/notas-list/'
 
     fetch(url)
         .then((response) => response.json())
@@ -22,7 +22,7 @@ function buildNotaList() {
                 //iterar em cada turma dentro do grupo
                 for (const turma of NotaTurma[chavesturma[chave]]) {
 
-                    const link = 'http://127.0.0.1:8000/static' + turma.ficheiro
+                    const link = 'https://nlei.up.railway.app/static' + turma.ficheiro
 
                     let nota = `
                     <a href=${link}><i class="fa-solid fa-file"></i>${turma.titulo}</a>
