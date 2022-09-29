@@ -1,0 +1,1 @@
+default_app_config = 'pwa1.apps.PwaConfig'
