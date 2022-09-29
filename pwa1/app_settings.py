@@ -5,7 +5,11 @@ from django.urls import get_script_prefix
 from django.utils.functional import lazy
 import os
 
+<<<<<<< HEAD
 # Lazy-evaluate URLs so including pwa1.urls in root urlconf works
+=======
+# Lazy-evaluate URLs so including pwa.urls in root urlconf works
+>>>>>>> pwa
 resolve_url = lazy(resolve_url, str)
 
 # Get script prefix for apps not mounted under /

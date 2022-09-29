@@ -24,10 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rb$efk*_1a1dpp=*nqgtjg8qlgkm_(zyk-6z=rh0r@uaod!9k%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # False for deploy
+DEBUG = False  # False for deploy
 
 ALLOWED_HOSTS = ['*']
+<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app', 'http://127.0.0.1:8000']
+=======
+CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app/', 'http://127.0.0.1:8000']
+>>>>>>> pwa
 
 # Application definition
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'pwa',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {

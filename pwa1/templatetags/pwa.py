@@ -15,7 +15,11 @@ def js(obj):
     return mark_safe(json.dumps(obj, cls=DjangoJSONEncoder))
 
 
+<<<<<<< HEAD
 @register.inclusion_tag('pwa1.html', takes_context=True)
+=======
+@register.inclusion_tag('pwa.html', takes_context=True)
+>>>>>>> pwa
 def progressive_web_app_meta(context):
     # Pass all PWA_* settings into the template
     return {
