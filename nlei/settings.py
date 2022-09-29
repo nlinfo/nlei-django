@@ -88,8 +88,16 @@ WSGI_APPLICATION = 'nlei.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'zWflgdRJFXfGGG9myP3O',
+        'HOST': 'containers-us-west-53.railway.app',
+        'PORT': '6926',
+
+        # sqlite3
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
