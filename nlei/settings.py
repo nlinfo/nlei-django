@@ -88,16 +88,16 @@ WSGI_APPLICATION = 'nlei.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'jKtnAOPoik6YbYWiyxKA',
-        'HOST': 'containers-us-west-53.railway.app',
-        'PORT': '6273',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'railway',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'jKtnAOPoik6YbYWiyxKA',
+        # 'HOST': 'containers-us-west-53.railway.app',
+        # 'PORT': '6273',
 
         # sqlite3
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -164,3 +164,49 @@ EMAIL_HOST_PASSWORD = 'auascpcgjvmpfbsn'
 # django summernote
 INSTALLED_APPS += ('django_summernote', )
 
+
+# SERVICE WORKER
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+PWA_APP_NAME = 'Núcleo de Licenciatura em engenharia Informáica'
+PWA_APP_SHORT_NAME = 'NLEI'
+PWA_APP_DESCRIPTION = "Núcleo formado por alunos de engenharia informática da Universidade lusiadas"
+PWA_APP_THEME_COLOR = '#00C6CF'
+PWA_APP_BACKGROUND_COLOR = '#3B3B3B'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+	{
+		'src': 'static/imagens/icons/nlei_icon_x96.png',
+		'sizes': '96x96',
+        "type": "image/png"
+	},
+    {
+        'src': 'static/imagens/icons/nlei_icon_x192.png',
+        'sizes': '192x192',
+        "type": "image/png"
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/imagens/icons/nlei_icon_x96.png',
+        'sizes': '96x96',
+        "type": "image/png"
+    },
+    {
+        'src': 'static/imagens/icons/nlei_icon_x192.png',
+        'sizes': '192x192',
+        "type": "image/png"
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+	{
+		'src': 'static/imagens/icons/nlei_icon_x192.png',
+		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+	}
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'pt'
