@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'rest_framework',
     'corsheaders',
+    'pwa',
 ]
 
 REST_FRAMEWORK = {
