@@ -89,12 +89,12 @@ WSGI_APPLICATION = 'nlei.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'jKtnAOPoik6YbYWiyxKA',
-        'HOST': 'containers-us-west-53.railway.app',
-        'PORT': '6273',
+        'USER':'root',
+        'PASSWORD':'PL4833fnSGzuoGVtGjjz',
+        'HOST':'containers-us-west-42.railway.app',
+        'PORT': '6787',
     }
 }
 
