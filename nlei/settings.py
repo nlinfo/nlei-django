@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-rb$efk*_1a1dpp=*nqgtjg8qlgkm_(zyk-6z=rh0r@uaod!9k%
 DEBUG = False  # False for deploy
 
 ALLOWED_HOSTS = ['*']
-# CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app/', 'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app/', 'http://127.0.0.1:8000']
 
 # Application definition
 
