@@ -87,16 +87,29 @@ WSGI_APPLICATION = 'nlei.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'YyG1lMSz7TViqnXRB3GF',
-        'HOST': 'containers-us-west-48.railway.app',
-        'PORT': '7962',
+        'PASSWORD': 'c9FzMxXdUfOfsQ0JCIqR',
+        'HOST': 'containers-us-west-54.railway.app',
+        'PORT': '5744',
     }
 }
+
+# postgres
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'nlei',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
