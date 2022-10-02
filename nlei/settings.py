@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'nlei.wsgi.application'
 
 DATABASES = {
 'default': {
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
+'ENGINE': 'django.db.backends.postgresql',
 'NAME': 'railway',
 'USER': 'postgres',
 'PASSWORD': 'c3iRxrGDxuK5Al5PZ12U',
