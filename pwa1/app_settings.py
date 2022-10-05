@@ -17,6 +17,7 @@ PWA_SERVICE_WORKER_PATH = getattr(settings, 'PWA_SERVICE_WORKER_PATH',
                                                'serviceworker.js'))
 # App parameters to include in manifest.json and appropriate meta tags
 PWA_APP_NAME = getattr(settings, 'PWA_APP_NAME', 'MyApp')
+PWA_APP_SHORT_NAME = getattr(settings, 'PWA_APP_SHORT_NAME', 'MyApp')
 PWA_APP_DESCRIPTION = getattr(settings, 'PWA_APP_DESCRIPTION', 'My Progressive Web App')
 PWA_APP_ROOT_URL = resolve_url(getattr(settings, 'PWA_APP_ROOT_URL', _PWA_SCRIPT_PREFIX))
 PWA_APP_THEME_COLOR = getattr(settings, 'PWA_APP_THEME_COLOR', '#000')
