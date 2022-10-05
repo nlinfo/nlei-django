@@ -28,6 +28,7 @@ DEBUG = False  # False for deploy
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://nlei.up.railway.app/', 'http://127.0.0.1:8000']
+SESSION_COOKIE_SECURE = False
 
 # Application definition
 
